@@ -20,6 +20,7 @@
             @include('layouts.partials.header') 
 
                 @yield('techsoch')
+                @yield('content')
 
             @include('layouts.partials.footer') 
             
