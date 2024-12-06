@@ -44,6 +44,9 @@ Route::get('/login', function () {
 })->name('login');
 
 
+
+
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
