@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Front\FrontendController;
@@ -39,9 +40,7 @@ Route::post('contact/send', [FrontendController::class, 'sendEmails'])->name('co
 Route::get('/send-email', [EmailController::class, 'sendEmail']);
 
 
-Route::get('/login', function () {
-    return 'Test';
-})->name('login');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 
 
 
