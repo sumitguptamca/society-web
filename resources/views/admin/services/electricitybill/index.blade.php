@@ -1,6 +1,5 @@
 @extends('admin/layouts/app')
 @push('style')
-
 @endpush
 @section('content')
     <div class="container-fluid py-2">
@@ -21,16 +20,22 @@
                                             Sr. No.</th>
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Name</th>
+                                            Customer Name</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Email</th>
+                                            Address</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Flat No.</th>
+                                            Meter No.</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            City</th>
+                                            Units Cinsumed</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Rate per unit(&#8377;)</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Total Bill(&#8377;)</th>
                                         <th class="text-secondary opacity-7">Action</th>
                                     </tr>
                                 </thead>
@@ -42,12 +47,12 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
 @endsection
 @push('script')
-<script> 
-   $(document).on('click', '.deleteFlateOwner', function() {
+    <script>
+        $(document).on('click', '.deleteElectricitybill', function() {
             var id = $(this).data('id');
             swal.fire({
                 title: "Are you sure you want to delete this?",
@@ -66,27 +71,55 @@
             });
 
         });
-   
 
-    $(function () {
-        var table = $('.data-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('admin.flateowner.index') }}",
-            columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex',orderable: false, searchable: false},
-                {data: 'name', name: 'name'},
-                {data: 'email', name: 'email'},
-                {data: 'flat_no', name: 'flat_no'},
-                {data: 'city', name: 'city'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
-            ],
-            initComplete: function(settings, json) {
-                // $("tfoot").next().hide();
-                $(".data-table").wrap("<div style='overflow:auto; position:relative;'></div>"); 
-            },
-        }); 
+        $(function() {
+            var table = $('.data-table').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.bills.electricities.index') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'customer_name',
+                        name: 'customer_name'
+                    },
+                    {
+                        data: 'address',
+                        name: 'address'
+                    },
+                    {
+                        data: 'meter_number',
+                        name: 'meter_number'
+                    },
+                    {
+                        data: 'units_consumed',
+                        name: 'units_consumed'
+                    },
+                    {
+                        data: 'rate_per_unit',
+                        name: 'rate_per_unit'
+                    },
+                    {
+                        data: 'total_amount',
+                        name: 'total_amount'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
+                ],
+                initComplete: function(settings, json) {
+                    // $("tfoot").next().hide();
+                    $(".data-table").wrap("<div style='overflow:auto; position:relative;'></div>");
+                },
+            });
 
-    });
-</script>
+        });
+    </script>
 @endpush

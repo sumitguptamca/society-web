@@ -4,6 +4,10 @@
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\Auth\DashboardController;
 use App\Http\Controllers\Admin\FlateOwner\FlateOwnerController;
+use App\Http\Controllers\Admin\Notice\NoticeController;
+use App\Http\Controllers\Admin\Services\ElectricityBillController;
+use App\Http\Controllers\Admin\Services\WaterBillController;
+use App\Http\Controllers\Admin\Ticket\TicketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Front\FrontendController;
@@ -63,6 +67,36 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 			Route::get('{id}/edit', 'edit')->name('edit'); 
 			Route::put('/{id}', 'update')->name('update');
 			Route::delete('/{id}', 'destroy')->name('destroy');
+		});
+		
+		Route::prefix('bills')->name('bills.')->group(function () {
+			Route::controller(ElectricityBillController::class)->prefix('electricities')->name('electricities.')->group(function () {
+				Route::get('/', 'index')->name('index');
+				Route::get('/create', 'create')->name('create');
+				Route::post('/store', 'store')->name('store'); 
+				Route::get('{id}/edit', 'edit')->name('edit'); 
+				Route::put('/{id}', 'update')->name('update');
+				Route::delete('/{id}', 'destroy')->name('destroy');
+			});
+			Route::controller(WaterBillController::class)->prefix('water')->name('water.')->group(function () {
+				Route::get('/', 'index')->name('index');
+				Route::get('/create', 'create')->name('create');
+				Route::post('/store', 'store')->name('store'); 
+				Route::get('{id}/edit', 'edit')->name('edit'); 
+				Route::put('/{id}', 'update')->name('update');
+				Route::delete('/{id}', 'destroy')->name('destroy');
+			});
+		});
+		Route::controller(NoticeController::class)->prefix('notice')->name('notice.')->group(function () {
+			Route::get('/', 'index')->name('index');
+			Route::get('/create', 'create')->name('create');
+			Route::post('/store', 'store')->name('store'); 
+			Route::get('{id}/edit', 'edit')->name('edit'); 
+			Route::put('/{id}', 'update')->name('update');
+			Route::delete('/{id}', 'destroy')->name('destroy');
+		});
+		Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
+			Route::get('/', 'index')->name('index');
 		});
 });
 

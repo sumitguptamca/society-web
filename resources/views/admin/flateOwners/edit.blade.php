@@ -21,7 +21,7 @@
                                      
                                       <div class="card-body">
                         
-                                      <div style="text-align:center"><h3>Update FlateOwner123324325</h3></div>
+                                      <div style="text-align:center"><h3>Update FlateOwner</h3></div>
                                    
                                       
                                       <form method="POST" action="{{ route('admin.flateowner.update', $flateOwner->id) }}">

@@ -29,4 +29,9 @@
         </div>
       </div>
     </div>
+    <style>
+    .tableflow {
+       overflow-x: hidden !important;
+      }
+    </style>
   </footer>

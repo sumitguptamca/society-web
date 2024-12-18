@@ -21,13 +21,13 @@ class FlateOwnerController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    // $deleteUrl = route('admin.flateowner.destroy', $row->id);
+                    $deleteUrl = route('admin.flateowner.destroy', $row->id);
                     $id = $row->id;
-                    $actionBtn = '<a href="' . route('admin.flateowner.edit', $id) . '" class="btn btn-primary btn-sm">Edit</a> &nbsp;&nbsp;';
-                    $actionBtn .= '<form action="' . $row->id . '" method="POST" style="display:inline;" onclick="archiveFunction()">
+                    $actionBtn = '<a href="' . route('admin.flateowner.edit', $id) . '"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
+                    $actionBtn .= '<form action="' . $deleteUrl . '" method="POST" style="display:inline;" class="form_'.$id.'">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
-                    <button type="submit" class="btn btn-danger btn-sm deleteFlateOwner" >Delete</button>
+                    <a href="javascript:;" class="deleteFlateOwner" data-id="' .$id .'"><i class="fas fa-trash-alt"></i></a>
                     </form>';
                     
                     return $actionBtn;
@@ -139,7 +139,6 @@ class FlateOwnerController extends Controller
      */
     public function destroy(string $id)
     {
-        dd($id);
         $flateOwner = FlateOwner::findOrFail($id);
 
         // Delete the FlateOwner

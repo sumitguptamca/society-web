@@ -17,10 +17,11 @@
         </li>
 
         <li class="nav-item">
-          <a href="javascript:void(0);" class="nav-link active bg-gradient-dark text-white">
+          <a class="nav-link text-dark" href="../pages/billing.html">
+            <i class="material-symbols-rounded opacity-5">receipt_long</i>
               <span class="link-title">&nbsp;Flate Owner</span>
           </a>
-          <ul id="flateOwnerSubMenu" style="display: none;">
+          {{-- <ul id="flateOwnerSubMenu" style="display: none;">
             <li class="{{ request()->is('admin/flateowner') ? 'active' : '' }}">
                 <a class="nav-link {{ request()->is('admin/flateowner') ? 'active' : '' }}" href="{{ route('admin.flateowner.index') }}">
                     <i class="fa fa-angle-right"></i> &nbsp; Flate Owner List
@@ -31,31 +32,31 @@
                       <i class="fa fa-angle-right"></i> &nbsp; Add Flate Owner
                   </a>
               </li>
-          </ul>
+          </ul> --}}
       </li>
         
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/billing.html">
             <i class="material-symbols-rounded opacity-5">receipt_long</i>
-            <span class="nav-link-text ms-1">Billing</span>
+            <span class="nav-link-text ms-1">Services</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/virtual-reality.html">
             <i class="material-symbols-rounded opacity-5">view_in_ar</i>
-            <span class="nav-link-text ms-1">Virtual Reality</span>
+            <span class="nav-link-text ms-1">Invoice</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/rtl.html">
             <i class="material-symbols-rounded opacity-5">format_textdirection_r_to_l</i>
-            <span class="nav-link-text ms-1">RTL</span>
+            <span class="nav-link-text ms-1">Ticket</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/notifications.html">
             <i class="material-symbols-rounded opacity-5">notifications</i>
-            <span class="nav-link-text ms-1">Notifications</span>
+            <span class="nav-link-text ms-1">Notice</span>
           </a>
         </li>
         <li class="nav-item mt-3">
@@ -64,21 +65,16 @@
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/profile.html">
             <i class="material-symbols-rounded opacity-5">person</i>
-            <span class="nav-link-text ms-1">Profile</span>
+            <span class="nav-link-text ms-1">Setting</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" href="../pages/sign-in.html">
             <i class="material-symbols-rounded opacity-5">login</i>
-            <span class="nav-link-text ms-1">Sign In</span>
+            <span class="nav-link-text ms-1">Sign Out</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="../pages/sign-up.html">
-            <i class="material-symbols-rounded opacity-5">assignment</i>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
+        
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
