@@ -29,42 +29,39 @@
                                         @method('PUT') 
                                          <div class="input-group input-group-outline my-3">
                                             {{-- <label for="name" class="form-label">{{ __('Full Name') }}</label> --}}
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $flateOwner->name) }}" required autocomplete="name" placeholder="Full Name">
+                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $flateOwner->name) }}" placeholder="Full Name">
                                             @error('name')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                           </div>
                                           <div class="col-md-6 input-group input-group-outline mb-3">
                                             {{-- <label for="email" class="form-label">{{ __('Email Address') }}</label> --}}
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $flateOwner->email) }}" required placeholder="Email Address">
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $flateOwner->email) }}" placeholder="Email Address">
                                             @error('email')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                           </div>
                                           <div class="col-md-6 input-group input-group-outline mb-3">
                                             {{-- <label for="mobile" class="form-label">{{ __('Mobile Number') }}</label> --}}
-                                           <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile', $flateOwner->mobile) }}" required placeholder="Mobile Number">
+                                           <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile', $flateOwner->mobile) }}" placeholder="Mobile Number">
                                             @error('mobile')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                           </div>
                                           <div class="col-md-6 input-group input-group-outline mb-3">
                                             {{-- <label for="flat_no" class="form-label">{{ __('Flat No.') }}</label> --}}
-                                            <input id="flat_no" type="text" class="form-control @error('flat_no') is-invalid @enderror" name="flat_no" value="{{ old('flat_no', $flateOwner->flat_no) }}" required placeholder="Flat No.">
+                                            <input id="flat_no" type="text" class="form-control @error('flat_no') is-invalid @enderror" name="flat_no" value="{{ old('flat_no', $flateOwner->flat_no) }}" placeholder="Flat No.">
                                             @error('flat_no')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                           </div>
                                           <div class="col-md-6 input-group input-group-outline mb-3">
                                             {{-- <label for="city" class="form-label">{{ __('City') }}</label> --}}
-                                            <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city', $flateOwner->city) }}" required placeholder="City">
-                                            @error('city')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                            <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city', $flateOwner->city) }}" placeholder="City">
                                           </div>
                                           <div class="col-md-6 input-group input-group-outline mb-3">
                                             {{-- <label for="username" class="form-label">{{ __('Username') }}</label> --}}
-                                            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username', $flateOwner->username) }}" required placeholder="Username">
+                                            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username', $flateOwner->username) }}" placeholder="Username">
                                             @error('username')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

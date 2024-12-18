@@ -46,8 +46,29 @@
     </div>
 @endsection
 @push('script')
+<script> 
+    function archiveFunction() {
+    event.preventDefault(); // prevent form submit
+    var form = event.target.form; // storing the form
+    swal.fire({
+    title: "Are you sure you want to delete this?",
+    text: "If you delete this, it will be gone forever.",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "No, cancel please!"
+    },
+    function(isConfirm){
+    if (isConfirm) {
+    form.submit();          // submitting the form when user press yes
+    } else {
+    swal("Cancelled", "Your imaginary file is safe :)", "error");
+    }
+    });
+    }
+   
 
-<script>
     $(function () {
         var table = $('.data-table').DataTable({
             processing: true,

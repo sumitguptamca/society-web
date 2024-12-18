@@ -21,19 +21,16 @@ class FlateOwnerController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $deleteUrl = route('admin.flateowner.destroy', $row->id);
+                    // $deleteUrl = route('admin.flateowner.destroy', $row->id);
                     $id = $row->id;
-                    return '<a href="' . route('admin.flateowner.edit', $id) . '" class="btn btn-primary btn-sm">Edit</a>
-                    <form action="' . $deleteUrl . '" method="POST" style="display:inline;" onsubmit="return confirmDelete()">
+                    $actionBtn = '<a href="' . route('admin.flateowner.edit', $id) . '" class="btn btn-primary btn-sm">Edit</a> &nbsp;&nbsp;';
+                    $actionBtn .= '<form action="' . $row->id . '" method="POST" style="display:inline;" onclick="archiveFunction()">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
-                    <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
-                    </form> 
-                    <script>
-                        function confirmDelete() {
-                            return confirm("Are you sure you want to delete this Flate Owner?");
-                        }
-                    </script>';
+                    <button type="submit" class="btn btn-danger btn-sm deleteFlateOwner" >Delete</button>
+                    </form>';
+                    
+                    return $actionBtn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
@@ -61,6 +58,7 @@ class FlateOwnerController extends Controller
             'email' => 'required|email',
             'mobile' => 'required',
             'flat_no' => 'required',
+            'username' => 'username',
             'password' => 'required|string|min:5|confirmed',
         ]);
       $flateOwner =  FlateOwner::create([
@@ -76,7 +74,7 @@ class FlateOwnerController extends Controller
         if($flateOwner){
             return redirect()->route('admin.flateowner.index')->with('success', 'Flate Owner added successful!.');
         }else{
-            return redirect()->route('admin.flateowner.create')->with('success', 'Something Went wrong.');
+            return redirect()->route('admin.flateowner.create')->with('error', 'Something Went wrong.');
         }
        
     }
@@ -141,6 +139,7 @@ class FlateOwnerController extends Controller
      */
     public function destroy(string $id)
     {
+        dd($id);
         $flateOwner = FlateOwner::findOrFail($id);
 
         // Delete the FlateOwner

@@ -19,8 +19,8 @@
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="{{ asset('/assets/assets_info/cssnucleo-icons.css') }}" rel="stylesheet" />
+    <link href="{{ asset('/assets/assets_info/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
@@ -32,10 +32,46 @@
 
         <!-- Include DataTables CSS -->
 <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+{{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+{{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> --}}
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    <style>
+      .custom-toast {
+          background-color: #228B22 !important; /* Forest Green color */
+          color: #ffffff; /* White text for better readability */
+          border-radius: 8px; /* Optional: Rounded corners */
+          font-size: 16px; /* Optional: Adjust text size */
+      }
+      .custom-toast-error {
+          background-color: #b22222  !important; /* Forest Green color */
+          color: #ffffff; /* White text for better readability */
+          border-radius: 8px; /* Optional: Rounded corners */
+          font-size: 16px; /* Optional: Adjust text size */
+      }
+      .custom-toast-warning {
+          background-color: #ff6700  !important; /* Forest Green color */
+          color: #ffffff; /* White text for better readability */
+          border-radius: 8px; /* Optional: Rounded corners */
+          font-size: 16px; /* Optional: Adjust text size */
+      }
+      .custom-toast-info {
+          background-color: #0000FF  !important; /* Forest Green color */
+          color: #ffffff; /* White text for better readability */
+          border-radius: 8px; /* Optional: Rounded corners */
+          font-size: 16px; /* Optional: Adjust text size */
+      }
+      .swal2-close {
+          color: white; /* Adjust color */
+          font-size: 1.2em; /* Adjust size */
+          top: 5px; /* Adjust position */
+          right: 10px; /* Adjust position */
+      }
 
+      </style>
     @stack('style')
 </head>
 
@@ -47,7 +83,7 @@
             <div class="container-fluid py-2">
                 <div class="row">
                   <div class="col-12">
-                    @include('admin/partials/messages')
+                    {{-- @include('admin/partials/messages') --}}
                   </div>
                 </div>
             </div>
@@ -136,6 +172,10 @@
       <script src="../assets/js/core/bootstrap.min.js"></script>
       <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
       <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+      <!-- SweetAlert2 JS -->
+   
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> --}}
       <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -152,7 +192,9 @@
 <!-- Include DataTables JS -->
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+@include('admin/partials/tostmessage')
       @stack('script')
+
     </body>
     
     </html>
