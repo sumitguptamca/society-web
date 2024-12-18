@@ -17,9 +17,8 @@ class UserSeeder extends Seeder
         // Create a regular user (non-admin)
         User::create([
             'name' => 'John Doe',
-            'email' => 'user@example.com',
-            'password' => Hash::make('password123'), 
-            'is_admin' => false, // Mark this user as not an admin
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('password123')
         ]);
     }
 }
