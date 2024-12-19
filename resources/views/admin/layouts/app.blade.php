@@ -70,6 +70,7 @@
           top: 5px; /* Adjust position */
           right: 10px; /* Adjust position */
       }
+     
 
       </style>
     @stack('style')

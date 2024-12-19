@@ -68,7 +68,10 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 			Route::put('/{id}', 'update')->name('update');
 			Route::delete('/{id}', 'destroy')->name('destroy');
 		});
-		
+		Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
+			Route::get('/', 'index')->name('index');
+			Route::get('/{id}', 'show')->name('show');
+		});
 		Route::prefix('bills')->name('bills.')->group(function () {
 			Route::controller(ElectricityBillController::class)->prefix('electricities')->name('electricities.')->group(function () {
 				Route::get('/', 'index')->name('index');
@@ -95,9 +98,7 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 			Route::put('/{id}', 'update')->name('update');
 			Route::delete('/{id}', 'destroy')->name('destroy');
 		});
-		Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
-			Route::get('/', 'index')->name('index');
-		});
+		
 });
 
 Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index']);

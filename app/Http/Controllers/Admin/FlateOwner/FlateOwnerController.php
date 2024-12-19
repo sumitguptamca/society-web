@@ -58,7 +58,7 @@ class FlateOwnerController extends Controller
             'email' => 'required|email',
             'mobile' => 'required',
             'flat_no' => 'required',
-            'username' => 'username',
+            'username' => 'required',
             'password' => 'required|string|min:5|confirmed',
         ]);
       $flateOwner =  FlateOwner::create([
