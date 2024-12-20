@@ -27,14 +27,14 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
   <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="/assets/assets_info/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/assets/assets_info/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
+  <link id="pagestyle" href="/assets/assets_info/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
@@ -42,7 +42,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand px-4 py-3 m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-        <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img" width="26" height="26" alt="main_logo">
+        <img src="/assets/assets_info/img/logo-ct-dark.png" class="navbar-brand-img" width="26" height="26" alt="main_logo">
         <span class="ms-1 text-sm text-dark">Creative Tim</span>
       </a>
     </div>
@@ -162,7 +162,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                        <img src="/assets/assets_info/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -180,7 +180,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                        <img src="/assets/assets_info/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -244,7 +244,7 @@
         <div class="row gx-4 mb-2">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="/assets/assets_info/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
           <div class="col-auto my-auto">
@@ -384,7 +384,7 @@
                   <ul class="list-group">
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2 pt-0">
                       <div class="avatar me-3">
-                        <img src="../assets/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
+                        <img src="/assets/assets_info/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
                       </div>
                       <div class="d-flex align-items-start flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">Sophie B.</h6>
@@ -394,7 +394,7 @@
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                       <div class="avatar me-3">
-                        <img src="../assets/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
+                        <img src="/assets/assets_info/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
                       </div>
                       <div class="d-flex align-items-start flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">Anne Marie</h6>
@@ -404,7 +404,7 @@
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                       <div class="avatar me-3">
-                        <img src="../assets/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
+                        <img src="/assets/assets_info/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
                       </div>
                       <div class="d-flex align-items-start flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">Ivanna</h6>
@@ -414,7 +414,7 @@
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                       <div class="avatar me-3">
-                        <img src="../assets/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
+                        <img src="/assets/assets_info/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
                       </div>
                       <div class="d-flex align-items-start flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">Peterson</h6>
@@ -424,7 +424,7 @@
                     </li>
                     <li class="list-group-item border-0 d-flex align-items-center px-0">
                       <div class="avatar me-3">
-                        <img src="../assets/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
+                        <img src="/assets/assets_info/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
                       </div>
                       <div class="d-flex align-items-start flex-column justify-content-center">
                         <h6 class="mb-0 text-sm">Nick Daniel</h6>
@@ -446,7 +446,7 @@
                   <div class="card card-blog card-plain">
                     <div class="card-header p-0 m-2">
                       <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                        <img src="/assets/assets_info/img/home-decor-1.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                       </a>
                     </div>
                     <div class="card-body p-3">
@@ -483,7 +483,7 @@
                   <div class="card card-blog card-plain">
                     <div class="card-header p-0 m-2">
                       <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-2.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                        <img src="/assets/assets_info/img/home-decor-2.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                       </a>
                     </div>
                     <div class="card-body p-3">
@@ -500,16 +500,16 @@
                         <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
                         <div class="avatar-group mt-2">
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                            <img alt="Image placeholder" src="../assets/img/team-3.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-3.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                            <img alt="Image placeholder" src="../assets/img/team-4.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-4.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                            <img alt="Image placeholder" src="../assets/img/team-1.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-1.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="../assets/img/team-2.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-2.jpg">
                           </a>
                         </div>
                       </div>
@@ -520,7 +520,7 @@
                   <div class="card card-blog card-plain">
                     <div class="card-header p-0 m-2">
                       <a class="d-block shadow-xl border-radius-xl">
-                        <img src="../assets/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
+                        <img src="/assets/assets_info/img/home-decor-3.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg">
                       </a>
                     </div>
                     <div class="card-body p-3">
@@ -537,16 +537,16 @@
                         <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
                         <div class="avatar-group mt-2">
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                            <img alt="Image placeholder" src="../assets/img/team-4.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-4.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                            <img alt="Image placeholder" src="../assets/img/team-3.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-3.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="../assets/img/team-2.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-2.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                            <img alt="Image placeholder" src="../assets/img/team-1.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-1.jpg">
                           </a>
                         </div>
                       </div>
@@ -574,16 +574,16 @@
                         <button type="button" class="btn btn-outline-primary btn-sm mb-0">View Project</button>
                         <div class="avatar-group mt-2">
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                            <img alt="Image placeholder" src="../assets/img/team-4.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-4.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                            <img alt="Image placeholder" src="../assets/img/team-3.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-3.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                            <img alt="Image placeholder" src="../assets/img/team-2.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-2.jpg">
                           </a>
                           <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Elena Morison">
-                            <img alt="Image placeholder" src="../assets/img/team-1.jpg">
+                            <img alt="Image placeholder" src="/assets/assets_info/img/team-1.jpg">
                           </a>
                         </div>
                       </div>
@@ -704,10 +704,10 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="/assets/assets_info/js/core/popper.min.js"></script>
+  <script src="/assets/assets_info/js/core/bootstrap.min.js"></script>
+  <script src="/assets/assets_info/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="/assets/assets_info/js/plugins/smooth-scrollbar.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -720,7 +720,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
+  <script src="/assets/assets_info/js/material-dashboard.min.js?v=3.2.0"></script>
 </body>
 
 </html>
