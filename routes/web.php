@@ -4,6 +4,7 @@
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\Auth\DashboardController;
 use App\Http\Controllers\Admin\FlateOwner\FlateOwnerController;
+use App\Http\Controllers\Admin\GST\GSTController;
 use App\Http\Controllers\Admin\Notice\NoticeController;
 use App\Http\Controllers\Admin\Services\ElectricityBillController;
 use App\Http\Controllers\Admin\Services\WaterBillController;
@@ -29,12 +30,12 @@ Route::get('about', [FrontendController::class, 'about'])->name('about');
 Route::get('faq', [FrontendController::class, 'software'])->name('faq');
 Route::get('web-dev', [FrontendController::class, 'web_dev'])->name('web-dev');
 Route::get('mobile-app', [FrontendController::class, 'mobile_app'])->name('mobile-app');
-// Route::get('e-commerce', [FrontendController::class, 'e_commerce'])->name('e-commerce');
-// Route::get('ui-ux', [FrontendController::class, 'ui_ux'])->name('ui-ux');
-// Route::get('digital-marketing', [FrontendController::class, 'digital_marketing'])->name('digital-marketing');
-// Route::get('outsource', [FrontendController::class, 'outsource'])->name('outsource');
-// Route::get('support', [FrontendController::class, 'support'])->name('support');
-// Route::get('industries', [FrontendController::class, 'industries'])->name('industries');
+Route::get('e-commerce', [FrontendController::class, 'e_commerce'])->name('e-commerce');
+Route::get('ui-ux', [FrontendController::class, 'ui_ux'])->name('ui-ux');
+Route::get('digital-marketing', [FrontendController::class, 'digital_marketing'])->name('digital-marketing');
+Route::get('outsource', [FrontendController::class, 'outsource'])->name('outsource');
+Route::get('support', [FrontendController::class, 'support'])->name('support');
+Route::get('industries', [FrontendController::class, 'industries'])->name('industries');
 Route::get('contact', [FrontendController::class, 'contact'])->name('contact');
 
 Route::get('portfolio', [FrontendController::class, 'portfolio'])->name('portfolio');
@@ -58,8 +59,9 @@ Route::get('/send-email', [EmailController::class, 'sendEmail']);
 // 	Route::post('login', [AdminLoginController::class, 'login'])->name('login');
 // });
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
-		Route::get('/', 'showLoginForm')->name('index');
+		Route::get('/', 'showLoginForm')->name('index');                     
 		Route::post('login', 'login')->name('login');
+		Route::get('logout', 'logout')->name('logout');
 		Route::controller(FlateOwnerController::class)->prefix('flateowner')->name('flateowner.')->group(function () {
 			Route::get('/', 'index')->name('index');
 			Route::get('/create', 'create')->name('create');
@@ -98,6 +100,14 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 			Route::put('/{id}', 'update')->name('update');
 			Route::delete('/{id}', 'destroy')->name('destroy');
 		});
+		Route::controller(GSTController::class)->prefix('gst')->name('gst.')->group(function () {
+			Route::get('/', 'index')->name('index');
+			Route::get('/create', 'create')->name('create');
+			Route::post('/store', 'store')->name('store'); 
+			Route::get('{id}/edit', 'edit')->name('edit'); 
+			Route::put('/{id}', 'update')->name('update');
+			Route::delete('/{id}', 'destroy')->name('destroy');
+		});
 		
 });
 
@@ -107,6 +117,3 @@ Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/admin-layout/{template}', function(){
-    return view('Frontend/admin_page/'.request()->route('template'));
-});

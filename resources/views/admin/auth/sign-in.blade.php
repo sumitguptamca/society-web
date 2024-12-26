@@ -69,12 +69,12 @@
               <form method="POST" action="{{ route('admin.login') }}">
               @csrf
                   <div class="input-group input-group-outline my-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                    {{-- <label class="form-label">Email</label> --}}
+                    <input type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Email">
                   </div>
                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" required>
+                    {{-- <label class="form-label">Password</label> --}}
+                    <input type="password" class="form-control" name="password" id="password" required placeholder="Password">
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input type="checkbox" name="remember" id="remember" class="form-check-input">
