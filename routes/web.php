@@ -59,11 +59,13 @@ Route::get('/send-email', [EmailController::class, 'sendEmail']);
 // 	Route::post('login', [AdminLoginController::class, 'login'])->name('login');
 // });
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
-		Route::get('/', 'showLoginForm')->name('index');                     
+		Route::get('/', 'showLoginform')->name('index');                     
 		Route::post('login', 'login')->name('login');
 		Route::get('logout', 'logout')->name('logout');
+		Route::get('updateProfile', 'updateProfile')->name('updateProfile');
+		Route::put('/updateProfile', 'profileSave')->name('update');
 		Route::controller(FlateOwnerController::class)->prefix('flateowner')->name('flateowner.')->group(function () {
-			Route::get('/', 'index')->name('index');
+			Route::get('/', 'index')->name('index')->middleware('auth');
 			Route::get('/create', 'create')->name('create');
 			Route::post('/store', 'store')->name('store'); 
 			Route::get('{id}/edit', 'edit')->name('edit'); 
@@ -110,8 +112,11 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 		});
 		
 });
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
-Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index']);
+// Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
 Auth::routes();

@@ -2850,7 +2850,7 @@ progress {
 .form-control {
   display: block;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 0.5rem 13px;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5rem;
@@ -2880,7 +2880,7 @@ progress {
 .form-control:focus {
   color: #404040;
   background-color: transparent;
-  border-color: transparent;
+  border-color: black;
   outline: 0;
   box-shadow: none;
 }
@@ -23944,7 +23944,7 @@ label,
 }
 
 .form-control {
-  border: none;
+  /* border: none; */
 }
 
 .form-control.is-invalid {

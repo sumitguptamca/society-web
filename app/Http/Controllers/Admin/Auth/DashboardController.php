@@ -13,9 +13,12 @@ class DashboardController extends Controller
     // Display the login form (if you want to create a custom login page)
     public function index()
     {
+        if(Auth::check()){
         $userData = User::get();
         $username = $userData->first()->name;
         return view('Admin/Dashboard/dashboard', compact('userData','username'));
+        }else{
+            return redirect("/admin")->withSuccess('Opps! You do not have access');
+        }
     }
-
 }
