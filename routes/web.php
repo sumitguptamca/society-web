@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\Notice\NoticeController;
 use App\Http\Controllers\Admin\Services\ElectricityBillController;
 use App\Http\Controllers\Admin\Services\WaterBillController;
 use App\Http\Controllers\Admin\Ticket\TicketController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Client\Auth\ClientDashboardController;
+use App\Http\Controllers\Client\Auth\ClientLoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Front\FrontendController;
@@ -54,10 +57,6 @@ Route::get('/send-email', [EmailController::class, 'sendEmail']);
 // Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 
 
-// Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-// 	Route::get('/', [AdminLoginController::class, 'showLoginForm'])->name('index');
-// 	Route::post('login', [AdminLoginController::class, 'login'])->name('login');
-// });
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
 		Route::get('/', 'showLoginform')->name('index');                     
 		Route::post('login', 'login')->name('login');
@@ -121,6 +120,20 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
+
+Route::controller(ClientLoginController::class)->prefix('client')->name('client.')->group(function () {
+	Route::get('login', 'showLoginForm')->name('index')->name('login'); 
+	Route::post('login', 'login')->name('login');
+	Route::get('logout', 'clientLogout')->name('logout')->middleware('auth');
+});
+Route::middleware('auth:flatowner')->group(function () {
+	Route::prefix('client')->group(function () {
+		Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
+	});
+});
+// Route::prefix('client')->group(function () {
+//     Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
+// });
 
 // Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

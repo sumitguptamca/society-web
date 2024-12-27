@@ -6,9 +6,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" href="{{ asset('assets/img/logo/favicon.ico') }}" type="image/x-icon" />
   <title>
-    Material Dashboard 3 by Creative Tim
+    Client
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
@@ -39,14 +39,20 @@
                   <p class="mb-0">Enter your email and password to login</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  @if(session('error'))
+                  <div class="alert alert-danger" role="alert">
+                  {{ session('error') }}
+                  </div>
+                  @endif    
+                  <form method="POST" action="{{ route('client.login') }}">
+                    @csrf
                     <div class="input-group input-group-outline mb-3">
                       {{-- <label class="form-label">Email</label> --}}
-                      <input type="email" class="form-control" placeholder="Email">
+                      <input type="email" class="form-control" placeholder="Enater Email" name="email" value="{{ old('email') }}">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       {{-- <label class="form-label">Password</label> --}}
-                      <input type="password" class="form-control" placeholder="Password">
+                      <input type="password" class="form-control" placeholder="Password" name="password" value="{{ old('password') }}">
                     </div>
                     <div class="form-check form-check-info text-start ps-0">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -55,7 +61,7 @@
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-dark btn-lg w-100 mt-4 mb-0">Login</button>
+                      <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Login</button>
                     </div>
                   </form>
                 </div>

@@ -19,6 +19,13 @@ return Application::configure(basePath: dirname(__DIR__))
             users: '/admin/dashboard'
         );
     })
+    ->withMiddleware(function (Middleware $middleware) {
+        // $middleware->append(Auth::class);
+        $middleware->redirectTo(
+            guests: '/client/login',
+            users: '/client/dashboard',
+        );
+    })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

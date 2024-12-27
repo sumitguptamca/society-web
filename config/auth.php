@@ -42,7 +42,7 @@ return [
         ],
         'flatowner' => [
         'driver' => 'session',
-        'provider' => 'flatOwner',
+        'provider' => 'flatowner',
        ],
     ],
 
@@ -68,7 +68,7 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-        'flatOwner' => [
+        'flatowner' => [
         'driver' => 'eloquent',
         'model' => App\Models\FlateOwner::class,
          ],
@@ -100,6 +100,12 @@ return [
 
     'passwords' => [
         'users' => [
+            'provider' => 'users',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'flatowner' => [
             'provider' => 'users',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
