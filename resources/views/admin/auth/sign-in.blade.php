@@ -26,8 +26,8 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
   <!-- Nucleo Icons -->
-  <link href="../assets/assets_info/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/assets_info/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="{{ asset('/assets/assets_info/css/nucleo-icons.css') }}" rel="stylesheet" />
+  <link href="{{ asset('/assets/sassets_info/css/nucleo-svg.css') }}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
@@ -39,15 +39,7 @@
 </head>
 
 <body class="bg-gray-200">
-  <div class="container position-sticky z-index-sticky top-0">
-    <div class="row">
-      <div class="col-12">
-        <!-- Navbar -->
-       
-        <!-- End Navbar -->
-      </div>
-    </div>
-  </div>
+ 
   <main class="main-content  mt-0">
     <div class="page-header align-items-start min-vh-100">
       <span class="mask opacity-6"></span>

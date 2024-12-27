@@ -13,6 +13,7 @@ class TicketController extends Controller
 {
     public function index(Request $request){
 
+        $title = 'Tickets';
         if ($request->ajax()) {
             $data = Ticket::join('flate_owners as fo', 'tickets.flateowner_id', '=', 'fo.id')
               ->orderBy('tickets.id', 'desc')
@@ -31,7 +32,7 @@ class TicketController extends Controller
                 ->rawColumns(['action','created_at'])
                 ->make(true);
         }
-        return view('admin.tickets.index');
+        return view('admin.tickets.index', compact('title'));
     }
 
     public function show($id){

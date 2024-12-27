@@ -15,7 +15,7 @@
   <!-- Nucleo Icons -->
   {{-- <link href=" {{ asset('assets_ino/css/nucleo-icons.css') }}" rel="stylesheet" /> --}}
 
-  <link href=" {{ asset('/assets/assets_info/css/nucleo-icons.css') }}" rel="stylesheet" />
+  <link href="{{ asset('/assets/assets_info/css/nucleo-icons.css') }}" rel="stylesheet" />
   <link href="{{ asset('/assets/sassets_info/css/nucleo-svg.css') }}" rel="stylesheet" />
   
   <!-- Font Awesome Icons -->
