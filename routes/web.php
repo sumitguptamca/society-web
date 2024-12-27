@@ -124,7 +124,7 @@ Route::prefix('admin')->group(function () {
 Route::controller(ClientLoginController::class)->prefix('client')->name('client.')->group(function () {
 	Route::get('login', 'showLoginForm')->name('index')->name('login'); 
 	Route::post('login', 'login')->name('login');
-	Route::get('logout', 'clientLogout')->name('logout')->middleware('auth');
+	Route::get('logout', 'clientLogout')->name('logout');
 });
 Route::middleware('auth:flatowner')->group(function () {
 	Route::prefix('client')->group(function () {
