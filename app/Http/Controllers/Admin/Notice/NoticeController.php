@@ -11,6 +11,7 @@ class NoticeController extends Controller
 {
     public function index(Request $request)
     {
+        $title = 'Notice';
         if ($request->ajax()) {
             $data = Notice::orderBy('id','desc');
             return DataTables::of($data)
@@ -30,7 +31,7 @@ class NoticeController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.notice.index');
+        return view('admin.notice.index', compact('title'));
     }
 
     /**
@@ -38,7 +39,8 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        return view('admin.notice.create');
+        $title = 'Add Notice';
+        return view('admin.notice.create', compact('title'));
     }
 
     /**
@@ -76,8 +78,9 @@ class NoticeController extends Controller
      */
     public function edit(string $id)
     {
+        $title = 'Update Notice';
         $notice = Notice::findOrFail($id);
-        return view('admin.notice.edit', compact('notice'));
+        return view('admin.notice.edit', compact('notice', 'title'));
     }
 
     /**

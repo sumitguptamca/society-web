@@ -64,53 +64,59 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 		Route::get('logout', 'logout')->name('logout');
 		Route::get('updateProfile', 'updateProfile')->name('updateProfile');
 		Route::put('/updateProfile', 'profileSave')->name('update');
-		Route::controller(FlateOwnerController::class)->prefix('flateowner')->name('flateowner.')->group(function () {
-			Route::get('/', 'index')->name('index')->middleware('auth');
-			Route::get('/create', 'create')->name('create');
-			Route::post('/store', 'store')->name('store'); 
-			Route::get('{id}/edit', 'edit')->name('edit'); 
-			Route::put('/{id}', 'update')->name('update');
-			Route::delete('/{id}', 'destroy')->name('destroy');
-		});
-		Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
-			Route::get('/', 'index')->name('index');
-			Route::get('/{id}', 'show')->name('show');
-		});
-		Route::prefix('bills')->name('bills.')->group(function () {
-			Route::controller(ElectricityBillController::class)->prefix('electricities')->name('electricities.')->group(function () {
+		Route::middleware('auth')->group(function () {
+			Route::controller(FlateOwnerController::class)->prefix('flatowner')->name('flatowner.')->group(function () {
 				Route::get('/', 'index')->name('index');
 				Route::get('/create', 'create')->name('create');
-				Route::post('/store', 'store')->name('store'); 
-				Route::get('{id}/edit', 'edit')->name('edit'); 
+				Route::post('/store', 'store')->name('store');
+				Route::get('{id}/edit', 'edit')->name('edit');
 				Route::put('/{id}', 'update')->name('update');
 				Route::delete('/{id}', 'destroy')->name('destroy');
 			});
-			Route::controller(WaterBillController::class)->prefix('water')->name('water.')->group(function () {
-				Route::get('/', 'index')->name('index');
-				Route::get('/create', 'create')->name('create');
-				Route::post('/store', 'store')->name('store'); 
-				Route::get('{id}/edit', 'edit')->name('edit'); 
-				Route::put('/{id}', 'update')->name('update');
-				Route::delete('/{id}', 'destroy')->name('destroy');
-			});
-		});
-		Route::controller(NoticeController::class)->prefix('notice')->name('notice.')->group(function () {
-			Route::get('/', 'index')->name('index');
-			Route::get('/create', 'create')->name('create');
-			Route::post('/store', 'store')->name('store'); 
-			Route::get('{id}/edit', 'edit')->name('edit'); 
-			Route::put('/{id}', 'update')->name('update');
-			Route::delete('/{id}', 'destroy')->name('destroy');
-		});
-		Route::controller(GSTController::class)->prefix('gst')->name('gst.')->group(function () {
-			Route::get('/', 'index')->name('index');
-			Route::get('/create', 'create')->name('create');
-			Route::post('/store', 'store')->name('store'); 
-			Route::get('{id}/edit', 'edit')->name('edit'); 
-			Route::put('/{id}', 'update')->name('update');
-			Route::delete('/{id}', 'destroy')->name('destroy');
-		});
 		
+			Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
+				Route::get('/', 'index')->name('index');
+				Route::get('/{id}', 'show')->name('show');
+			});
+		
+			Route::prefix('bills')->name('bills.')->group(function () {
+				Route::controller(ElectricityBillController::class)->prefix('electricities')->name('electricities.')->group(function () {
+					Route::get('/', 'index')->name('index');
+					Route::get('/create', 'create')->name('create');
+					Route::post('/store', 'store')->name('store');
+					Route::get('{id}/edit', 'edit')->name('edit');
+					Route::put('/{id}', 'update')->name('update');
+					Route::delete('/{id}', 'destroy')->name('destroy');
+				});
+		
+				Route::controller(WaterBillController::class)->prefix('water')->name('water.')->group(function () {
+					Route::get('/', 'index')->name('index');
+					Route::get('/create', 'create')->name('create');
+					Route::post('/store', 'store')->name('store');
+					Route::get('{id}/edit', 'edit')->name('edit');
+					Route::put('/{id}', 'update')->name('update');
+					Route::delete('/{id}', 'destroy')->name('destroy');
+				});
+			});
+		
+			Route::controller(NoticeController::class)->prefix('notice')->name('notice.')->group(function () {
+				Route::get('/', 'index')->name('index');
+				Route::get('/create', 'create')->name('create');
+				Route::post('/store', 'store')->name('store');
+				Route::get('{id}/edit', 'edit')->name('edit');
+				Route::put('/{id}', 'update')->name('update');
+				Route::delete('/{id}', 'destroy')->name('destroy');
+			});
+		
+			Route::controller(GSTController::class)->prefix('gst')->name('gst.')->group(function () {
+				Route::get('/', 'index')->name('index');
+				Route::get('/create', 'create')->name('create');
+				Route::post('/store', 'store')->name('store');
+				Route::get('{id}/edit', 'edit')->name('edit');
+				Route::put('/{id}', 'update')->name('update');
+				Route::delete('/{id}', 'destroy')->name('destroy');
+			});
+		});
 });
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -14,6 +14,7 @@ class ElectricityBillController extends Controller
      */
     public function index(Request $request)
     {
+        $title = 'Electricity Bill';
         if ($request->ajax()) {
             $data = ElectricityBill::orderBy('id','desc');
             return DataTables::of($data)
@@ -33,7 +34,7 @@ class ElectricityBillController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.services.electricitybill.index');
+        return view('admin.services.electricitybill.index', compact('title'));
     }
 
     /**
@@ -41,7 +42,8 @@ class ElectricityBillController extends Controller
      */
     public function create()
     {
-        return view('admin.services.electricitybill.create');
+        $title = 'Add Electricity Bill';
+        return view('admin.services.electricitybill.create', compact('title'));
     }
 
     /**
@@ -83,16 +85,16 @@ class ElectricityBillController extends Controller
      */
     public function edit(string $id)
     {
+        $title = 'Electricity Bill';
         $electricitybill = ElectricityBill::findOrFail($id);
-        return view('admin.services.electricitybill.edit', compact('electricitybill'));
+        return view('admin.services.electricitybill.edit', compact('electricitybill', 'title'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        
+    { 
         $request->validate([
             'customer_name' => 'required|string|max:255',
             'meter_number' => 'required|string|max:255',

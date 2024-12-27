@@ -8,13 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>Admin | {{ $title }}</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="icon" href="{{ asset('assets/img/logo/favicon.ico') }}" type="image/x-icon" />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
@@ -169,10 +167,10 @@
       <!--   Core JS Files   -->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-      <script src="../assets/js/core/popper.min.js"></script>
-      <script src="../assets/js/core/bootstrap.min.js"></script>
-      <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-      <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+      <script src="{{ asset('/assets/assets_info/js/core/popper.min.js') }}"></script>
+      <script src="{{ asset('/assets/assets_info/js/core/bootstrap.min.js') }}"></script>
+      <script src="{{ asset('/assets/assets_info/js/plugins/perfect-scrollbar.min.js') }}"></script>
+      <script src="{{ asset('/assets/assets_info/js/plugins/smooth-scrollbar.min.js') }}"></script>
       <!-- SweetAlert2 JS -->
    
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

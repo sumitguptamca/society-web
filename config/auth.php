@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'flatowner' => [
+        'driver' => 'session',
+        'provider' => 'flatOwner',
+       ],
     ],
 
     /*
@@ -64,6 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+        'flatOwner' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\FlateOwner::class,
+         ],
 
         // 'users' => [
         //     'driver' => 'database',

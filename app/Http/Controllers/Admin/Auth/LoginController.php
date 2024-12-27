@@ -15,7 +15,8 @@ class LoginController extends Controller
     // Display the login form (if you want to create a custom login page)
     public function showLoginform()
     {
-        return view('Admin/Auth/sign-in');
+        $title = 'Login';
+        return view('Admin/Auth/sign-in', compact('title'));
     }
 
     
@@ -55,7 +56,8 @@ class LoginController extends Controller
 
     public function updateProfile(){
         // $user = User::findOrFail($id);
-        return view('admin.auth.updateprofile');
+        $title = 'Update Profile';
+        return view('admin.auth.updateprofile', compact('title'));
     }
 
     public function profileSave(Request $request)

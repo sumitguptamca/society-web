@@ -14,6 +14,7 @@ class GSTController extends Controller
      */
     public function index(Request $request)
     {
+        $title = 'GST Detail';
         if ($request->ajax()) {
             $data = GSTDetail::orderBy('id','desc');
             return DataTables::of($data)
@@ -33,7 +34,7 @@ class GSTController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.gstDetail.index');
+        return view('admin.gstDetail.index', compact('title'));
     }
 
     /**
@@ -41,7 +42,8 @@ class GSTController extends Controller
      */
     public function create()
     {
-        return view('admin.gstDetail.create');
+        $title = 'Add GST Detail';
+        return view('admin.gstDetail.create', compact('title'));
     }
 
     /**
@@ -79,8 +81,9 @@ class GSTController extends Controller
      */
     public function edit(string $id)
     {
+        $title = 'Update GST Detail';
         $gstdetail = GSTDetail::findOrFail($id);
-        return view('admin.gstDetail.edit', compact('gstdetail'));
+        return view('admin.gstDetail.edit', compact('gstdetail', 'title'));
     }
 
     /**

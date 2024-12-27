@@ -9,7 +9,7 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Flate Owner List</h6>
+                            <h6 class="text-white text-capitalize ps-3">Add Flat Owner</h6>
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
@@ -21,10 +21,10 @@
                                      
                                       <div class="card-body">
                         
-                                      <div style="text-align:center"><h3>Add FlateOwner</h3></div>
+                                      <div style="text-align:center"><h3>Add Flat Owner</h3></div>
                                    
                                       
-                                      <form method="POST" action="{{ route('admin.flateowner.store') }}">
+                                      <form method="POST" action="{{ route('admin.flatowner.store') }}">
                                         @csrf      
                                          <div class="input-group input-group-outline my-3">
                                             {{-- <label for="name" class="form-label">{{ __('Full Name') }}</label> --}}
@@ -80,7 +80,7 @@
                                             <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
                                           </div>
                                           <div class="text-center col-lg-2 col-md-8 col-12 mx-auto">
-                                            <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">Add</button>
+                                            <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Add</button>
                                           </div>
                                         </form>
                                       </div>
