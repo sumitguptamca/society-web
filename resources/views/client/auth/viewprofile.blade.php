@@ -31,8 +31,8 @@
                                                                     <div class="row mt-0">
                                                                         <div
                                                                     class="d-flex flex-column align-items-center text-center p-3 py-0">
-                                                                    @if (auth()->user()->image)
-                                                                        <img src="{{ asset('storage/' . auth()->user()->image) }}"
+                                                                    @if (auth()->user()->profile_image)
+                                                                        <img src="{{ asset('storage/' . auth()->user()->profile_image) }}"
                                                                             alt="Profile Picture" width="100">
                                                                     @else
                                                                         <img class="rounded-circle mt-5"
