@@ -15,6 +15,7 @@ class Notice extends Model
         'notice_date',
         'title',
         'description',
+        'created_by',
     ];
 
     public function getNoticeDateAttribute($value)

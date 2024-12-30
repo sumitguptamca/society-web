@@ -37,7 +37,7 @@
                                                         <a href="javascript:;" class="text-white">{{ $notice->title }}</a>
                                                     </h5>
                                                     <p class="mb-0">
-                                                        {{ Str::limit($notice->description, 100) }}
+                                                        {{ $notice->description }}
                                                     </p>
                                                 </div>
                                                 <hr class="dark horizontal my-0">

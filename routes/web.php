@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Notice\NoticeController;
 use App\Http\Controllers\Admin\Services\ElectricityBillController;
 use App\Http\Controllers\Admin\Services\WaterBillController;
 use App\Http\Controllers\Admin\Ticket\TicketController;
+use App\Http\Controllers\Client\Auth\ProfileController;
 use App\Http\Controllers\Client\Tickets\TicketController as ClientTicketController;
 use App\Http\Controllers\Client\Notice\NoticeController as ClientNoticeController;
 use App\Http\Controllers\Auth\LoginController;
@@ -127,6 +128,7 @@ Route::controller(ClientLoginController::class)->prefix('client')->name('client.
 	Route::get('login', 'showLoginForm')->name('index')->name('login'); 
 	Route::post('login', 'login')->name(name: 'login');
 	Route::get('logout', 'clientLogout')->name('logout');
+	// Route::get('profile', action: 'viewprofile')->name('profile');
 	Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
 	Route::middleware('auth:flatowner')->group(function () {
 	Route::controller(ClientTicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
@@ -139,6 +141,9 @@ Route::controller(ClientLoginController::class)->prefix('client')->name('client.
       });
 	  Route::controller(ClientNoticeController::class)->prefix('notice')->name('notice.')->group(function () {
         Route::get('/', 'index')->name('index');
+      });
+	  Route::controller(ProfileController::class)->prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', 'viewprofile')->name('index');
       });
    });
 });

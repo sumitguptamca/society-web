@@ -25,6 +25,7 @@
                                    
                                       
                                       <form method="POST" action="{{ route('admin.notice.store') }}">
+                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}"> 
                                         @csrf      
                                          <div class="input-group input-group-outline my-3">
                                             {{-- <label for="name" class="form-label">{{ __('Full Name') }}</label> --}}

@@ -10,6 +10,6 @@ class FlateOwner extends Authenticatable
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'email', 'mobile', 'flat_no', 'city', 'country', 'username', 'password',
+        'name', 'email', 'mobile', 'flat_no', 'city', 'country', 'username', 'password','profile_image'
     ];
 }

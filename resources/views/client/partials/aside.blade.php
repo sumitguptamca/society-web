@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class=" btn bg-gradient text-dark" href="{{url('/client/dashboard')}}">
+                <a class=" btn bg-gradient text-dark" href="{{url('/client/profile')}}">
                   <i class="material-symbols-rounded">account_circle</i>
                     <span class="nav-link-text ms-1">Profile</span>
                 </a>

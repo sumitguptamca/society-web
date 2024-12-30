@@ -48,6 +48,7 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
        $request->validate([
             'notice_date' => 'required|date',
             'notice_title' => 'required|string|max:255',
@@ -57,6 +58,7 @@ class NoticeController extends Controller
                 'notice_date' => $request->notice_date,
                 'title'       => $request->notice_title,
                 'description'  => $request->notice_description,
+                'created_by'  => $request->user_id,
             ]);
         if($notice){
             return redirect()->route('admin.notice.index')->with('success', 'Notice created successfully!.');

@@ -24,57 +24,80 @@
                                       <div style="text-align:center"><h3>Update Flat Owner</h3></div>
                                    
                                       
-                                      <form method="POST" action="{{ route('admin.flatowner.update', $flateOwner->id) }}">
+                                      <form method="POST" action="{{ route('admin.flatowner.update', $flateOwner->id) }}" enctype="multipart/form-data">
                                         @csrf     
                                         @method('PUT') 
-                                         <div class="input-group input-group-outline my-3">
-                                            {{-- <label for="name" class="form-label">{{ __('Full Name') }}</label> --}}
-                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $flateOwner->name) }}" placeholder="Full Name">
-                                            @error('name')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-outline my-3">
+                                              <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $flateOwner->name) }}" placeholder="Full Name">
+                                                @error('name')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                           </div>
-                                          <div class="col-md-6 input-group input-group-outline mb-3">
-                                            {{-- <label for="email" class="form-label">{{ __('Email Address') }}</label> --}}
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $flateOwner->email) }}" placeholder="Email Address">
-                                            @error('email')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-outline my-3">
+                                              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $flateOwner->email) }}" placeholder="Email Address">
+                                                @error('email')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                           </div>
-                                          <div class="col-md-6 input-group input-group-outline mb-3">
-                                            {{-- <label for="mobile" class="form-label">{{ __('Mobile Number') }}</label> --}}
-                                           <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile', $flateOwner->mobile) }}" placeholder="Mobile Number">
-                                            @error('mobile')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        </div> 
+
+
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-outline my-3">
+                                              <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile', $flateOwner->mobile) }}" placeholder="Mobile Number">
+                                                @error('mobile')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                           </div>
-                                          <div class="col-md-6 input-group input-group-outline mb-3">
-                                            {{-- <label for="flat_no" class="form-label">{{ __('Flat No.') }}</label> --}}
-                                            <input id="flat_no" type="text" class="form-control @error('flat_no') is-invalid @enderror" name="flat_no" value="{{ old('flat_no', $flateOwner->flat_no) }}" placeholder="Flat No.">
-                                            @error('flat_no')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-outline my-3">
+                                              <input id="flat_no" type="text" class="form-control @error('flat_no') is-invalid @enderror" name="flat_no" value="{{ old('flat_no', $flateOwner->flat_no) }}" placeholder="Flat No.">
+                                                @error('flat_no')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                           </div>
-                                          <div class="col-md-6 input-group input-group-outline mb-3">
-                                            {{-- <label for="city" class="form-label">{{ __('City') }}</label> --}}
-                                            <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city', $flateOwner->city) }}" placeholder="City">
+                                        </div> 
+
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-outline my-3">
+                                              <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city', $flateOwner->city) }}" placeholder="City">
+                                             @error('city')
+                                                  <div class="invalid-feedback">{{ $message }}</div>
+                                              @enderror
+                                            </div>
                                           </div>
-                                          <div class="col-md-6 input-group input-group-outline mb-3">
-                                            {{-- <label for="username" class="form-label">{{ __('Username') }}</label> --}}
-                                            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username', $flateOwner->username) }}" placeholder="Username">
-                                            @error('username')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-outline my-3">
+                                              <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username', $flateOwner->username) }}" placeholder="Username">
+                                              @error('username')
+                                              <div class="invalid-feedback">{{ $message }}</div>
+                                              @enderror
+                                            </div>
                                           </div>
-                                          {{-- <div class="col-md-6 input-group input-group-outline mb-3">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Password">
-                                            @error('password')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        </div> 
+                                          
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                            <div class="input-group input-group-outline my-3">
+                                              <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" accept="image/*">
+                                              @error('file')
+                                              <div class="invalid-feedback">{{ $message }}</div>
+                                             @enderror
+                                             <span><img src="{{ asset('storage/' . $flateOwner->profile_image) }}" alt="Profile Picture" width="100"></div>
+                                            </div>
                                           </div>
-                                          <div class="col-md-6 input-group input-group-outline mb-3">
-                                            <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
-                                          </div> --}}
+                                          
+                                        </div> 
+                                         
                                           <div class="text-center col-lg-2 col-md-8 col-12 mx-auto">
                                             <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Update</button>
                                           </div>
