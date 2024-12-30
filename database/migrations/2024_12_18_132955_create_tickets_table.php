@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('flateowner_id')->references('id')->on('flate_owners')->onDelete('cascade');
             $table->string('ticket_no')->unique();
             $table->string('title')->nullable();
+            $table->string('phone')->nullable();
             $table->text('description')->nullable();
             $table->enum('status', ['Open', 'In Progress','Closed'])->default('Open');
             $table->json('images')->nullable();

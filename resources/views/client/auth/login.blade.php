@@ -48,7 +48,7 @@
                     @csrf
                     <div class="input-group input-group-outline mb-3">
                       {{-- <label class="form-label">Email</label> --}}
-                      <input type="email" class="form-control" placeholder="Enater Email" name="email" value="{{ old('email') }}">
+                      <input type="text" class="form-control" placeholder="Enater Email" name="username" value="{{ old('username') }}">
                     </div>
                     <div class="input-group input-group-outline mb-3">
                       {{-- <label class="form-label">Password</label> --}}

@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // public function flatowner()
+    // {
+    //     return $this->hasOne(FlateOwner::class); // Replace FlatOwner with your model name
+    // }
 }

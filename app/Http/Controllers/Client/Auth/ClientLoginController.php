@@ -17,15 +17,14 @@ class ClientLoginController extends Controller
     public function login(Request $request)
     {
         // Validate the incoming data
-      $credentials=  $request->validate([
-            'email' => ['required', 'email'],
+      $request->validate([
+            'username' => ['required', 'string'],
             'password' => ['required', 'string'],
         ]);
-        // dd($credentials);
-            if (Auth::guard('flatowner')->attempt($credentials)) {
+            if (Auth::guard('flatowner')->attempt($request->only('username', 'password'))) {
                 return redirect()->intended('/client/dashboard')->with('success', 'Logged in Successfully!');
             }
-            return redirect()->back()->with('error', 'Invalid email or password.');
+            return redirect()->back()->with('error', 'Invalid username or password.');
     }
     public function clientLogout(Request $request){
         Auth::guard('flatowner')->logout();

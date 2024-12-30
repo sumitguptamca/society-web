@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\Notice\NoticeController;
 use App\Http\Controllers\Admin\Services\ElectricityBillController;
 use App\Http\Controllers\Admin\Services\WaterBillController;
 use App\Http\Controllers\Admin\Ticket\TicketController;
+use App\Http\Controllers\Client\Tickets\TicketController as ClientTicketController;
+use App\Http\Controllers\Client\Notice\NoticeController as ClientNoticeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\Auth\ClientDashboardController;
 use App\Http\Controllers\Client\Auth\ClientLoginController;
@@ -123,14 +125,28 @@ Route::prefix('admin')->group(function () {
 
 Route::controller(ClientLoginController::class)->prefix('client')->name('client.')->group(function () {
 	Route::get('login', 'showLoginForm')->name('index')->name('login'); 
-	Route::post('login', 'login')->name('login');
+	Route::post('login', 'login')->name(name: 'login');
 	Route::get('logout', 'clientLogout')->name('logout');
+	Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
+	Route::middleware('auth:flatowner')->group(function () {
+	Route::controller(ClientTicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('{id}/edit', 'edit')->name('edit');
+        Route::put('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+      });
+	  Route::controller(ClientNoticeController::class)->prefix('notice')->name('notice.')->group(function () {
+        Route::get('/', 'index')->name('index');
+      });
+   });
 });
-Route::middleware('auth:flatowner')->group(function () {
-	Route::prefix('client')->group(function () {
-		Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
-	});
-});
+// Route::middleware('auth:flatowner')->group(function () {
+// 	Route::prefix('client')->group(function () {
+// 		Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
+// 	});
+
 // Route::prefix('client')->group(function () {
 //     Route::get('/dashboard', [ClientDashboardController::class, 'index'])->name('dashboard');
 // });

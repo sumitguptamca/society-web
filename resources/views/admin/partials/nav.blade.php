@@ -7,8 +7,8 @@
           <ul class="navbar-nav d-flex align-items-center  justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="{{route('admin.update')}}" class="nav-link text-body font-weight-bold px-0">
-                <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="Profile Picture" width="20px" style="border-radius: 50%">
-                <span>{{auth()->user()->name }}</span>
+                {{-- <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="Profile Picture" width="20px" style="border-radius: 50%">
+                <span>{{auth()->user()->name }}</span> --}}
                  {{-- <i class="material-symbols-rounded">account_circle</i> --}}
               </a>
             </li>

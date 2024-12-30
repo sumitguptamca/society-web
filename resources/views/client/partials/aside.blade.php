@@ -19,7 +19,19 @@
                 </a>
             </li>
 
-         
+            <li class="nav-item">
+                <a class=" btn bg-gradient text-dark" href="{{url('/client/notice/')}}">
+                  <i class="material-symbols-rounded">news</i>
+                    <span class="nav-link-text ms-1">Notice Board</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class=" btn bg-gradient text-dark" href="{{url('/client/dashboard')}}">
+                  <i class="material-symbols-rounded">account_circle</i>
+                    <span class="nav-link-text ms-1">Profile</span>
+                </a>
+            </li>
+
           
             <li class="nav-item">
                 <div class="dropdown">
@@ -29,32 +41,31 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                         <li>
-                            <a class="dropdown-item" href="{{ url('client/tickets/') }}">
+                            <a class="dropdown-item" href="{{ url('/client/tickets/') }}">
                                 Tickets List
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('client.tickets.create') }}">
+                                Add Ticket
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
-           
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
+            <li class="nav-item">
+                <a class=" btn bg-gradient text-dark" href="{{url('/client/dashboard')}}">
+                  <i class="material-symbols-rounded">request_quote</i>
+                    <span class="nav-link-text ms-1">Invoice</span>
+                </a>
             </li>
             <li class="nav-item">
-              <div class="dropdown">
-                <a href="#" class="btn bg-gradient dropdown-toggle text-dark" data-bs-toggle="dropdown"
-                    id="navbarDropdownMenuLink2">
-                    <i class="material-symbols-rounded">settings</i>&nbsp;&nbsp;Setting
+                <a class=" btn bg-gradient text-dark" href="{{url('/client/dashboard')}}">
+                  <i class="material-symbols-rounded">edit_note</i>
+                    <span class="nav-link-text ms-1">Renovation <br>Request</span>
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <li>
-                        <a class="dropdown-item" href="{{ url('client/viewProfile/') }}">
-                           View Profile
-                        </a>
-                    </li>
-                </ul>
-            </div>
             </li>
+           
             <li class="nav-item">
               <div class="dropdown">
                 <a class="btn bg-gradient text-dark" href="{{ route('client.logout') }}">
