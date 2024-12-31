@@ -36,12 +36,12 @@
                                                     <h5 class="font-weight-normal mt-3 title-style">
                                                         <a href="javascript:;" class="text-white">{{ $notice->title }}</a>
                                                     </h5>
-                                                    <p class="mb-0">
+                                                    <p class="mb-0 notice-text">
                                                         {{ $notice->description }}
                                                     </p>
                                                 </div>
                                                 <hr class="dark horizontal my-0">
-                                                <div class="card-footer d-flex">
+                                                <div class="card-footer d-flex text-dark">
                                                     <p class="font-weight-normal my-auto">{{ $notice->notice_date }}</p>
                                                     <i
                                                         class="material-symbols-rounded position-relative ms-auto text-lg me-1 my-auto">person</i>

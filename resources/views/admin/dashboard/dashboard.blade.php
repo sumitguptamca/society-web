@@ -11,10 +11,10 @@
             <div class="col-xl-2 col-sm-6 mb-xl-0 mb-2 mt-5">
                 <div class="card">
                     <div class="card-header p-2 ps-2">
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center text-center">
                             <div>
                                 <p class="text-sm mb-0 text-capitalize">Flat Owner</p>
-                                <h4 class="mb-0">60</h4>
+                                <h4 class="mb-0">{{$flatownerCount}}</h4>
                             </div>
                         </div>
                     </div>

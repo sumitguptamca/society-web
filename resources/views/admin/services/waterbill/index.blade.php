@@ -114,6 +114,12 @@
                         searchable: false
                     },
                 ],
+                language: {
+                paginate: {
+                    previous: 'Pre',  // Customize pagination text here
+                    next: 'Next'      // You can also change "Next" text if needed
+                    }
+                },
                 initComplete: function(settings, json) {
                     // $("tfoot").next().hide();
                     $(".data-table").wrap("<div style='overflow:auto; position:relative;'></div>");

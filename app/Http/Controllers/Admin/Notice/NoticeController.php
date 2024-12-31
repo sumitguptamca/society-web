@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Notice;
 use App\Http\Controllers\Controller;
 use App\Models\Notice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 
 class NoticeController extends Controller
@@ -28,7 +29,12 @@ class NoticeController extends Controller
                     
                     return $actionBtn;
                 })
-                ->rawColumns(['action'])
+                ->editColumn('description', function ($row) {
+                    // Truncate content to 20 words
+                    $truncatedContent = Str::words($row->description, 15, '...');
+                    return nl2br(e($truncatedContent)); 
+                })
+                ->rawColumns(['action','description'])
                 ->make(true);
         }
         return view('admin.notice.index', compact('title'));

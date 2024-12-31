@@ -25,10 +25,10 @@
                                                 </div>
                                                 <form>
                                                     <div class="container rounded bg-white mt-0">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="p-3 py-0">
-                                                                    <div class="row mt-0">
+                                                        <div class="row justify-content-center align-items-center">
+                                                            <div class="col-md-6">
+                                                                <div class="p-3">
+                                                                    <div class="row">
                                                                         <div
                                                                     class="d-flex flex-column align-items-center text-center p-3 py-0">
                                                                     @if (auth()->user()->profile_image)

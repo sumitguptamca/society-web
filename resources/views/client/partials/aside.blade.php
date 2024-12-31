@@ -54,11 +54,27 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class=" btn bg-gradient text-dark" href="{{url('/client/dashboard')}}">
-                  <i class="material-symbols-rounded">request_quote</i>
-                    <span class="nav-link-text ms-1">Invoice</span>
-                </a>
+                <div class="dropdown">
+                    <a class="btn bg-gradient dropdown-toggle text-dark" data-bs-toggle="dropdown"
+                    id="navbarDropdownMenuLink2" href="#">
+                        <i class="material-symbols-rounded">request_quote</i>
+                          <span class="nav-link-text ms-1">Invoice</span>
+                      </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Paid Invoice
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                Unpaid
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+           
             <li class="nav-item">
                 <a class=" btn bg-gradient text-dark" href="{{url('/client/dashboard')}}">
                   <i class="material-symbols-rounded">edit_note</i>

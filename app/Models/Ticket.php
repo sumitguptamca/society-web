@@ -9,6 +9,6 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'flateowner_id', 'ticket_no', 'title', 'description', 'status', 'images',
+        'flateowner_id', 'ticket_no', 'title', 'description', 'status', 'images','email', 'phone'
     ];
 }

@@ -19,15 +19,22 @@
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Sr. No.</th>
-                                        {{-- <th
+                                        <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Ticket No.</th>
+                                            <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Title</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Description</th>
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Email</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Date</th> --}}
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            Mobile</th>
+                                       
+                                        <th
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Note</th>
                                         <th class="text-secondary opacity-7">Action</th>
                                     </tr>
                                 </thead>
@@ -72,11 +79,19 @@
             ajax: "{{ route('client.tickets.index') }}",
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex',orderable: false, searchable: false},
-                // {data: 'title', name: 'title'},
-                // {data: 'description', name: 'description'},
-                // {data: 'notice_date', name: 'notice_date'},
+                {data: 'ticket_no', name: 'ticket_no'},
+                {data: 'title', name: 'title'},
+                {data: 'email', name: 'email'},
+                {data: 'phone', name: 'phone'},
+                {data: 'description', name: 'description'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
+            language: {
+            paginate: {
+                previous: 'Pre',  // Customize pagination text here
+                next: 'Next'      // You can also change "Next" text if needed
+            }
+           },
             initComplete: function(settings, json) {
                 // $("tfoot").next().hide();
                 $(".data-table").wrap("<div style='overflow:auto; position:relative;'></div>"); 

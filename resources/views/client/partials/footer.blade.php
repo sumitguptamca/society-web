@@ -6,7 +6,7 @@
             © <script>
               document.write(new Date().getFullYear())
             </script>,
-            Shree Ganesh Co-operative Society. All Rights Reserved 
+            Shree Ganesh Co-operative Society. All Rights Reserved. Designed and Developed by<a href="https://www.techsochss.com/" target="_blank"> <b>TechSoch Software Solution Pvt. Ltd</b></a>
           </div>
         </div>
       </div>
