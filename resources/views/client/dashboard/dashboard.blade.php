@@ -21,21 +21,25 @@
                                 {{-- <div style="text-align:center"><h3>Notice Board</h3></div> --}}
 
                                 <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                                  @if($notice)
                                     <div class="card">
                                       <div class="card-header p-2 ps-3">
                                         <div class="d-flex justify-content-center text-center">
                                           <div>
-                                            <h4 class="mb-0">{{ $notice->title }}</h4>
-                                            <p class="text-sm mb-0 text-capitalize">{{ $notice->description }}</p>
+                                            <h4 class="mb-0">{{ $notice->title ?? '' }}</h4>
+                                            <p class="text-sm mb-0 text-capitalize">{{ $notice->description ?? '' }}</p>
                                           </div>
                                         </div>
                                       </div>
                                       <hr class="dark horizontal my-0">
                                       <div class="card-footer d-flex justify-content-between">
-                                        <h3 class="mb-0 text-sm">{{ $notice->notice_date }}</h3>
-                                        <h3 class="mb-0 text-sm dashboard-info"> <i class="material-symbols-rounded position-relative ms-auto text-lg me-1 my-auto">person</i>{{ $notice->created_by_name }}</h3>
+                                        <h3 class="mb-0 text-sm">{{ $notice->notice_date ?? ''}}</h3>
+                                        <h3 class="mb-0 text-sm dashboard-info"> <i class="material-symbols-rounded position-relative ms-auto text-lg me-1 my-auto">person</i>{{ $notice->created_by_name ?? ''}}</h3>
                                       </div>
                                     </div>
+                                    @else
+                                    {{-- <div class="card">No data</div> --}}
+                                    @endif
                                   </div>
                             </div>
                         </div>

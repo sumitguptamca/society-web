@@ -44,6 +44,10 @@ return [
         'driver' => 'session',
         'provider' => 'flatowner',
        ],
+       'api' => [
+				'driver' => 'passport',
+				'provider' => 'flatowner',
+		],
     ],
 
     /*
