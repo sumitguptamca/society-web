@@ -79,6 +79,8 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 			Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
 				Route::get('/', 'index')->name('index');
 				Route::get('/{id}', 'show')->name('show');
+				Route::get('{id}/edit', 'edit')->name('edit');
+				Route::post('/updateStatus', 'updateTStatus')->name('updateStatus');
 			});
 		
 			Route::prefix('bills')->name('bills.')->group(function () {

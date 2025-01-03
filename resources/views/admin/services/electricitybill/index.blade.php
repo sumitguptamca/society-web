@@ -11,7 +11,7 @@
                             <h6 class="text-white text-capitalize ps-3">Electricity bill List</h6>
                         </div>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body px-0 pb-2 mx-3 z-index-2">
                         <div class="table-responsive p-0 tableflow">
                             <table class="table align-items-center data-table mb-0">
                                 <thead>
