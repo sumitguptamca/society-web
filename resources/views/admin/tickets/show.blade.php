@@ -111,19 +111,6 @@
                                 </div>
                             </div>
                     
-                            <!-- Images Section -->
-                            <div class="row">
-                                <div class="box full-width">
-                                    <label for="images">Images</label>
-                                    <div class="img">
-                                        <img src="https://tse2.mm.bing.net/th?id=OIP.XIIr9PuEBjBf12zg23w_sgHaEK&pid=Api&P=0&h=180">
-                                        <img src="https://tse3.mm.bing.net/th?id=OIP.iskFyYFUNsslHcmFfekXZAHaEm&pid=Api&P=0&h=180">
-                                        <img src="https://tse3.mm.bing.net/th?id=OIP.VG4LTewmmGU5bSgi9dD8ywHaE8&pid=Api&P=0&h=180">
-                                        <img src="https://tse1.mm.bing.net/th?id=OIP.xvM3chsolzysB2s0UU4N6QHaEo&pid=Api&P=0&h=180">
-                                    </div>
-                                    
-                                </div>
-                            </div>
                         </div>
 
                     </div>

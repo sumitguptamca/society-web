@@ -36,9 +36,10 @@ class TicketController extends Controller
     }
 
     public function show($id){
+        $title = 'Ticket Details';
         $ticket = Ticket::findOrFail($id);
         $flateowner_id  = $ticket->flateowner_id;
         $flateowner_name = FlateOwner::where('id', $flateowner_id )->value('name');
-        return view('admin.tickets.show', compact('ticket','flateowner_name'));
+        return view('admin.tickets.show', compact('ticket','flateowner_name', 'title'));
     }
 }

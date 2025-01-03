@@ -69,6 +69,7 @@ class TicketController extends Controller
     {
         $request->validate([
             'ticket_name' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255',
             ]);
            
             $lastTicket = Ticket::orderBy('id', 'desc')->first();
