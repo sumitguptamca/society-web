@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Services\ElectricityBillController;
 use App\Http\Controllers\Admin\Services\WaterBillController;
 use App\Http\Controllers\Admin\Ticket\TicketController;
 use App\Http\Controllers\Client\Auth\ProfileController;
+use App\Http\Controllers\Client\Renovation\RenovationController;
 use App\Http\Controllers\Client\Tickets\TicketController as ClientTicketController;
 use App\Http\Controllers\Client\Notice\NoticeController as ClientNoticeController;
 use App\Http\Controllers\Auth\LoginController;
@@ -137,8 +138,12 @@ Route::controller(ClientLoginController::class)->prefix('client')->name('client.
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('{id}/edit', 'edit')->name('edit');
-        Route::put('/{id}', 'update')->name('update');
+        Route::delete('/{id}', 'destroy')->name('destroy');
+      });
+	Route::controller(RenovationController::class)->prefix('renovation')->name('renovation.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
         Route::delete('/{id}', 'destroy')->name('destroy');
       });
 	  Route::controller(ClientNoticeController::class)->prefix('notice')->name('notice.')->group(function () {

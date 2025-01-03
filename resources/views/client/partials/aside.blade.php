@@ -53,6 +53,7 @@
                     </ul>
                 </div>
             </li>
+           
             <li class="nav-item">
                 <div class="dropdown">
                     <a class="btn bg-gradient dropdown-toggle text-dark" data-bs-toggle="dropdown"
@@ -74,13 +75,27 @@
                     </ul>
                 </div>
             </li>
-           
             <li class="nav-item">
-                <a class=" btn bg-gradient text-dark" href="{{url('/client/dashboard')}}">
-                  <i class="material-symbols-rounded">edit_note</i>
-                    <span class="nav-link-text ms-1">Renovation <br>Request</span>
-                </a>
+                <div class="dropdown">
+                    <a href="#" class="btn bg-gradient dropdown-toggle text-dark" data-bs-toggle="dropdown"
+                        id="navbarDropdownMenuLink2">
+                        <i class="material-symbols-rounded">edit_note</i>Renovation Request
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <li>
+                            <a class="dropdown-item" href="{{ url('/client/renovation/') }}">
+                                Renovation List
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('client.renovation.create') }}">
+                                Add Renovation
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+            
            
             <li class="nav-item">
               <div class="dropdown">
