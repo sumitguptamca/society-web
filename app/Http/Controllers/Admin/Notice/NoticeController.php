@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Notice;
 
 use App\Http\Controllers\Controller;
 use App\Models\Notice;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
@@ -20,7 +21,7 @@ class NoticeController extends Controller
                 ->addColumn('action', function($row){
                     $id = $row->id;
                     $deleteUrl = route('admin.notice.destroy', $row->id);
-                    $actionBtn = '<a href="' . route('admin.notice.edit', $id) . '"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
+                    $actionBtn = '<a href="' . route('admin.notice.edit', $id) . '" title="Edit"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
                     $actionBtn .= '<form action="' . $deleteUrl . '" method="POST" style="display:inline;" class="form_'.$id.'">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
@@ -88,7 +89,8 @@ class NoticeController extends Controller
     {
         $title = 'Update Notice';
         $notice = Notice::findOrFail($id);
-        return view('admin.notice.edit', compact('notice', 'title'));
+        $notice_date = Carbon::parse($notice->notice_date)->format('Y-m-d');
+        return view('admin.notice.edit', compact('notice', 'title','notice_date'));
     }
 
     /**

@@ -29,7 +29,13 @@
                                         @method('PUT') 
                                         <div class="input-group input-group-outline my-3">
                                           {{-- <label for="name" class="form-label">{{ __('Full Name') }}</label> --}}
-                                          <input type="date" id="notice_date" name="notice_date" class="form-control @error('notice_date') is-invalid @enderror" value="{{ old('notice_date', $notice->notice_date) }}">
+
+
+                                          {{-- {{dd($notice_date)}} --}}
+
+                                          <input type="date" id="notice_date" name="notice_date" class="form-control @error('notice_date') is-invalid @enderror" value="{{ old('notice_date', $notice_date) }}">
+
+
                                           @error('notice_date')
                                               <div class="invalid-feedback">{{ $message }}</div>
                                           @enderror

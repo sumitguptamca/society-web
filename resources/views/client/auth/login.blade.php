@@ -47,12 +47,20 @@
                   <form method="POST" action="{{ route('client.login') }}">
                     @csrf
                     <div class="input-group input-group-outline mb-3">
-                      {{-- <label class="form-label">Email</label> --}}
-                      <input type="text" class="form-control" placeholder="Enater Email" name="username" value="{{ old('username') }}">
+                      <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username" name="username" value="{{ old('username') }}">
+                      @error('username')
+                      <span class="invalid-feedback" role="alert" style="color: red;">
+                          {{ $message }}
+                          </span>
+                      @enderror
                     </div>
                     <div class="input-group input-group-outline mb-3">
-                      {{-- <label class="form-label">Password</label> --}}
-                      <input type="password" class="form-control" placeholder="Password" name="password" value="{{ old('password') }}">
+                      <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" value="{{ old('password') }}">
+                      @error('password')
+                      <span class="invalid-feedback" role="alert" style="color: red;">
+                         {{ $message }}
+                          </span>
+                      @enderror
                     </div>
                     <div class="form-check form-check-info text-start ps-0">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>

@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="box">
                                     <label for="field4">Status</label>
-                                    <input type="text" id="field4" name="field4" value="{{$ticket->status}}" disabled style="background-color:#1e90ff;">
+                                    <input type="text" id="field4" name="field4" value="{{$ticket->status}}" disabled>
                                 </div>
                             </div>
                             <!-- Description Section -->

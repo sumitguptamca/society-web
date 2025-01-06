@@ -69,7 +69,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                         <li>
-                            <a class="dropdown-item" href="{{ url('admin/flatowner/') }}">
+                            <a class="dropdown-item" href="#">
                                 Invoice List
                             </a>
                         </li>
