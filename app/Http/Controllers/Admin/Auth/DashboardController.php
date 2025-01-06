@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $flatownerCount = $this->flatownerCount();
         $userData = User::get();
         $username = $userData->first()->name;
-        return view('Admin/Dashboard/dashboard', compact('userData','username','title','flatownerCount'));
+        return view('admin/dashboard/dashboard', compact('userData','username','title','flatownerCount'));
         }else{
             return redirect("/admin")->withSuccess('Opps! You do not have access');
         }
