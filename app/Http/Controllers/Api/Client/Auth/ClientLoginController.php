@@ -41,37 +41,16 @@ class ClientLoginController extends Controller
 
 		public function clientLogout(Request $request)
 		{
-			
 			try{
-				$token = Auth::guard('api')->token();
+				$user = $request->user('flatowner');
+				$user = $request->user('flatowner');
+				if ($user) {
+					$user->currentAccessToken()->delete();
+				}
 				return response()->json([
-					'status' => true,
+					'success' => true,
 					'message' => 'Logged out successfully!',
-					'token' => $token,
-					
-				]);
-				// $credentials = $request->only('username', 'password');
-				// $flatowner = FlateOwner::where('username', $credentials['username'])->first();
-
-				// // If flatowner is not found or password doesn't match
-				// if (!$flatowner || !Hash::check($credentials['password'], $flatowner->password)) {
-				// 	return response()->json([
-				// 		'message' => 'Invalid username or password.',
-				// 		'status' => false
-				// 	], 401); // Unauthorized
-				// }
-
-				// // Authenticate the user using flatowner guard
-				// Auth::guard('flatowner')->login($flatowner);
-
-				// $token = $request->bearerToken();
-				// if (!$token) {
-				// 	return response()->json([
-				// 		'status' => false,
-				// 		'message' => 'No token provided.',
-						
-				// 	], 400);
-				// }
+				], 200);
 				
 			}catch(Exception $ex){
 				return response()->json([

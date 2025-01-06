@@ -16,7 +16,7 @@ class LoginController extends Controller
     public function showLoginform()
     {
         $title = 'Login';
-        return view('Admin/Auth/sign-in', compact('title'));
+        return view('admin/auth/sign-in', compact('title'));
     }
 
     
@@ -27,22 +27,22 @@ class LoginController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
         ]);
-        if (Auth::attempt($credentials)) {
-            $userrole = auth()->user()->userrole;
-            // dd($userrole);
-            switch ($userrole) {
-                case 2:
-                    return redirect()->intended('admin/dashboard')->with('success', 'Admin Login Successfully!');
-                default:
-                    return redirect()->intended('/admin');
-            }
-        }
-        // Attempt to log the user in
-        // if (Auth::attempt($request->only('email', 'password'), $request->filled('remember'))) {
-        //     // Redirect if successful
-        //     return redirect()->intended('/admin/dashboard')->with('success', 'Admin Login Successfully!');  // Redirect to intended route or dashboard
+        // if (Auth::attempt($credentials)) {
+        //     $userrole = auth()->user()->userrole;
+        //     // dd($userrole);
+        //     switch ($userrole) {
+        //         case 2:
+        //             return redirect()->intended('admin/dashboard')->with('success', 'Admin Login Successfully!');
+        //         default:
+        //             return redirect()->intended('/admin');
+        //     }
         // }
-        // return redirect()->back()->with('error', 'Invalid email or password.');
+        // Attempt to log the user in
+        if (Auth::attempt($request->only('email', 'password'), $request->filled('remember'))) {
+            // Redirect if successful
+            return redirect()->intended('/admin/dashboard')->with('success', 'Admin Login Successfully!');  // Redirect to intended route or dashboard
+        }
+        return redirect()->back()->with('error', 'Invalid email or password.');
     }
 
     // Handle the logout process
