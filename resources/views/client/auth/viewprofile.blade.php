@@ -47,6 +47,7 @@
                                                                 </div>
                                                                     </div>
                                                                     <div class="row mt-2">
+                                                                        <label for="username" class="form-label"><b>Name</b></label>
                                                                         <div class="col-md-12"><input type="text"
                                                                                 class="form-control" name="name"
                                                                                 placeholder="Full name"
@@ -55,24 +56,35 @@
 
                                                                     </div>
                                                                     <div class="row mt-3">
+                                                                        <label for="username" class="form-label"><b>Email</b></label>
                                                                         <div class="col-md-12"><input type="text"
                                                                             class="form-control" name="email"
                                                                             value="{{ old('email', auth()->user()->email) }}"
                                                                             placeholder="Email" disabled></div>
                                                                     </div>
                                                                     <div class="row mt-3">
+                                                                        <label for="username" class="form-label"><b>Mobile No.</b></label>
                                                                         <div class="col-md-12"><input type="number"
                                                                                 class="form-control" name="mobile"
                                                                                 value="{{ old('mobile', auth()->user()->mobile) }}"
                                                                                 placeholder="Phone number" disabled></div>
                                                                     </div>
                                                                     <div class="row mt-3">
+                                                                        <label for="username" class="form-label"><b>Username</b></label>
                                                                         <div class="col-md-12"><input type="text"
                                                                                 class="form-control" name="username"
                                                                                 value="{{ old('username', auth()->user()->username) }}"
                                                                                 placeholder="User name" disabled></div>
                                                                     </div>
                                                                     <div class="row mt-3">
+                                                                        <label for="username" class="form-label"><b>Flat No.</b></label>
+                                                                        <div class="col-md-12"><input type="text"
+                                                                                class="form-control" name="username"
+                                                                                value="{{ old('username', auth()->user()->flat_no) }}"
+                                                                                placeholder="User name" disabled></div>
+                                                                    </div>
+                                                                    <div class="row mt-3">
+                                                                        <label for="username" class="form-label"><b>City</b></label>
                                                                         <div class="col-md-12"><input type="text"
                                                                                 class="form-control" placeholder="City"
                                                                                 name="city"

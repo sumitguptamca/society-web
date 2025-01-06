@@ -54,7 +54,11 @@
                                                             <div class="col-md-6"><input type="text" class="form-control" name="email" value="{{ old('email', auth()->user()->email) }}" placeholder="Email"></div>
                                                         </div>
                                                         <div class="row mt-3">
-                                                            <div class="col-md-6"><input type="number" class="form-control" name="mobile" value="{{ old('mobile', auth()->user()->mobile) }}" placeholder="Phone number"></div>
+                                                            <div class="col-md-6"><input type="test" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile', auth()->user()->mobile) }}" placeholder="Phone number">
+                                                                @error('mobile')
+                                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                                @enderror
+                                                            </div>
                                                             <div class="col-md-6"><input type="text" class="form-control" name="country" value="{{ old('country', auth()->user()->country) }}" placeholder="Country"></div>
                                                             
                                                         </div>

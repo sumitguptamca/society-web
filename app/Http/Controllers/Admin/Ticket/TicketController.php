@@ -17,11 +17,25 @@ class TicketController extends Controller
         if ($request->ajax()) {
             $data = Ticket::join('flate_owners as fo', 'tickets.flateowner_id', '=', 'fo.id')
               ->orderBy('tickets.id', 'desc')
-              ->select('tickets.*', 'fo.name as flateowner_name');
+              ->select('tickets.*', 'fo.name as flateowner_name','fo.flat_no');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('created_at', function ($row) {
                     return Carbon::parse($row->created_at)->format('d-m-Y H:i:s'); // Format datetime
+                })
+                ->editColumn('title', function ($row) {
+                    if ($row->title == 1) {
+                        return 'For Complaint Raise';
+                    } elseif ($row->title == 2) {
+                        return 'Update Owner Detail';
+                    } elseif ($row->title == 3) {
+                        return 'Update Mobile No.';
+                    } elseif ($row->title == 4) {
+                        return 'Update Email';
+                    } 
+                    else {
+                        return 'N/A'; // Default value if no match
+                    }
                 })
                 ->addColumn('action', function($row){
                      $id = $row->id;

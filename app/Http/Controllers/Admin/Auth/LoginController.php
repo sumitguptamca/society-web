@@ -65,9 +65,14 @@ class LoginController extends Controller
         // Validate the incoming request
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'mobile' => 'numeric|min:10|max:15',
             'email' => 'required|email|max:255|unique:users,email,' . auth()->id(),
             'password' => 'nullable|confirmed|min:6',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ],[
+            'mobile.numeric' => 'The mobile number must contain only digits.',
+            'mobile.min' => 'Mobile number must be at least 10 digits.',
+            'mobile.max' => 'Mobile number can be at most 15 digits long.',
         ]);
 
         // Update the user's name and email
