@@ -98,7 +98,7 @@
                                                         </div>
                                 
                                                         <div class="mt-5 text-right">
-                                                            <button class="btn btn-info profile-button" type="submit">Update Profile</button>
+                                                            <button class="btn btn-dark profile-button" type="submit">Update Profile</button>
                                                         </div>
                                                     </div>
                                                 </div>

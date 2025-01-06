@@ -51,6 +51,7 @@ class RenovationController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all())
         $request->validate([
             'request_name' => 'required|string|max:255',
             'phone' => ['nullable','numeric','digits_between:10,15'],

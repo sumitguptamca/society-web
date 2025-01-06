@@ -93,6 +93,21 @@
                 </div>
             </li>
             <li class="nav-item">
+                <div class="dropdown">
+                    <a href="#" class="btn bg-gradient dropdown-toggle text-dark" data-bs-toggle="dropdown"
+                        id="navbarDropdownMenuLink2">
+                        <i class="material-symbols-rounded">factory</i>&nbsp;&nbsp;Renovation
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                        <li>
+                            <a class="dropdown-item" href="{{ url('admin/renovation/') }}">
+                                Renovation List
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
               <div class="dropdown">
                 <a href="#" class="btn bg-gradient dropdown-toggle text-dark" data-bs-toggle="dropdown"
                     id="navbarDropdownMenuLink2">

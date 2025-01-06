@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Auth\DashboardController;
 use App\Http\Controllers\Admin\FlateOwner\FlateOwnerController;
 use App\Http\Controllers\Admin\GST\GSTController;
 use App\Http\Controllers\Admin\Notice\NoticeController;
+use App\Http\Controllers\Admin\Renovation\RenovationRequestController;
 use App\Http\Controllers\Admin\Services\ElectricityBillController;
 use App\Http\Controllers\Admin\Services\WaterBillController;
 use App\Http\Controllers\Admin\Ticket\TicketController;
@@ -78,6 +79,12 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 			});
 		
 			Route::controller(TicketController::class)->prefix('tickets')->name('tickets.')->group(function () {
+				Route::get('/', 'index')->name('index');
+				Route::get('/{id}', 'show')->name('show');
+				Route::get('{id}/edit', 'edit')->name('edit');
+				Route::post('/updateStatus', 'updateTStatus')->name('updateStatus');
+			});
+			Route::controller(RenovationRequestController::class)->prefix('renovation')->name('renovation.')->group(function () {
 				Route::get('/', 'index')->name('index');
 				Route::get('/{id}', 'show')->name('show');
 				Route::get('{id}/edit', 'edit')->name('edit');
