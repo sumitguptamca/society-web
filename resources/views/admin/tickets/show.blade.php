@@ -81,6 +81,19 @@
                     <div class="table-responsive p-0 tableflow">
                         <div class="container1">
                             <!-- First Row -->
+                            @php
+                            if ($ticket->title == 1) {
+                                $title = 'For Complaint Raise';
+                            } elseif ($ticket->title == 2) {
+                                $title = 'Update Owner Detail';
+                            } elseif ($ticket->title == 3) {
+                                $title = 'Update Mobile No.';
+                            } elseif ($ticket->title == 4) {
+                                $title = 'Update Email';
+                            } else {
+                                $title = 'N/A';
+                            }
+                            @endphp
                             <div class="row">
                                 <div class="box">
                                     <label for="field1">Added By</label>
@@ -96,7 +109,7 @@
                             <div class="row">
                                 <div class="box">
                                     <label for="field3">Title</label>
-                                    <input type="text" id="field3" name="field3" value="{{$ticket->title}}" disabled>
+                                    <input type="text" id="field3" name="field3" value="{{$title}}" disabled>
                                 </div>
                                 <div class="box">
                                     <label for="field4">Status</label>
