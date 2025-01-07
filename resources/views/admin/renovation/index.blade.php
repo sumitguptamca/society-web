@@ -31,7 +31,7 @@
                                         <th
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Note</th>
-                                        {{-- <th class="text-secondary opacity-7">Action</th> --}}
+                                        <th class="text-secondary opacity-7">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,7 +79,7 @@
                 {data: 'flatowner', name: 'flatowner'},
                 {data: 'phone', name: 'phone'},
                 {data: 'note', name: 'note'},
-                // {data: 'action', name: 'action', orderable: false, searchable: false},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
             language: {
             paginate: {

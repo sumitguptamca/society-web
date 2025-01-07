@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Renovation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class RenovationRequestController extends Controller
@@ -21,18 +22,33 @@ class RenovationRequestController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 
-                // ->addColumn('action', function($row){
-                //      $id = $row->id;
-                //      $route = route('admin.renovation.updateStatus');
-                //     // $actionBtn = '<a class="btn btn-info updateStatus" style="margin-top: 8px;" href="'.$route.'" title="Update" data-pid="'.$id.'">Update</a> &nbsp;&nbsp;&nbsp;';
-                //     $actionBtn =  '<button class="updateStatusBtn custome-btn" data-id="' . $row->id . '" data-status="' . $row->status . '"><i class="fas fa-refresh" title="Update Status"></i></button> &nbsp;&nbsp;';
-                //     $actionBtn .= '<a href="'. route('admin.renovation.show', $id).'" title="Show more details"><i class="fas fa-eye"></i></a>';
-                //     return $actionBtn;
-                // })
+                ->addColumn('action', function($row){
+                    $id = $row->id;
+                    $deleteUrl = route('admin.renovation.destroy', $row->id);
+                    // $actionBtn = '<a href="' . route('client.tickets.edit', $id) . '"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
+                    $actionBtn = '<form action="' . $deleteUrl . '" method="POST" style="display:inline;" class="form_'.$id.'">
+                    ' . csrf_field() . '
+                    ' . method_field('DELETE') . '
+                    <a href="javascript:;" class="deleteRenovation" data-id="' .$id .'" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                    </form>';
+                    
+                    return $actionBtn;
+                })
               
                 ->rawColumns(['action','created_at','status'])
                 ->make(true);
         }
         return view('admin.renovation.index', compact('title'));
+    }
+    public function destroy($id)
+    {
+        $ticket = Renovation::where('id', $id)
+                        ->first();
+        if ($ticket) {
+            $ticket->delete();
+            return redirect()->route('admin.renovation.index')->with('success', 'Ticket deleted successfully');
+        } else {
+            return redirect()->route('admin.renovation.index')->with('error', 'Not deleted');
+        }
     }
 }

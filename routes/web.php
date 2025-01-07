@@ -87,8 +87,7 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 			Route::controller(RenovationRequestController::class)->prefix('renovation')->name('renovation.')->group(function () {
 				Route::get('/', 'index')->name('index');
 				Route::get('/{id}', 'show')->name('show');
-				Route::get('{id}/edit', 'edit')->name('edit');
-				Route::post('/updateStatus', 'updateTStatus')->name('updateStatus');
+				Route::delete('/{id}', 'destroy')->name('destroy');
 			});
 		
 			Route::prefix('bills')->name('bills.')->group(function () {
