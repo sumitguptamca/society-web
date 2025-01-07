@@ -19,21 +19,21 @@
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Sr. No.</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" title="Flat Owner">
+                                                Name</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Flat No.</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Ticket No.</th>
                                         <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Ticket Name</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Added By</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Flat No.</th>
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" title="Ticket Name">
+                                            Title</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Description</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Created Date</th>
+                                             Date</th>
                                         <th class="text-secondary opacity-7">Action</th>
                                     </tr>
                                 </thead>
@@ -83,20 +83,20 @@
                         searchable: false
                     },
                     {
-                        data: 'ticket_no',
-                        name: 'ticket_no'
-                    },
-                    {
-                        data: 'title',
-                        name: 'title'
-                    },
-                    {
                         data: 'flateowner_name',
                         name: 'flateowner_name'
                     },
                     {
                         data: 'flat_no',
                         name: 'flat_no'
+                    },
+                    {
+                        data: 'ticket_no',
+                        name: 'ticket_no'
+                    },
+                    {
+                        data: 'title',
+                        name: 'title'
                     },
                     {
                         data: 'description',
