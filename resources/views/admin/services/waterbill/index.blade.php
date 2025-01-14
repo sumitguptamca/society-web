@@ -8,10 +8,10 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">Flate Owner List</h6>
+                            <h6 class="text-white text-capitalize ps-3">Water bill List</h6>
                         </div>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body px-0 pb-2 mx-3 z-index-2">
                         <div class="table-responsive p-0 tableflow">
                             <table class="table align-items-center data-table mb-0">
                                 <thead>
@@ -22,19 +22,19 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Customer Name</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Address</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Meter No.</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Units Cinsumed</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Rate per unit(&#8377;)</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Total Bill(&#8377;)</th>
                                         <th class="text-secondary opacity-7">Action</th>
                                     </tr>
@@ -114,6 +114,12 @@
                         searchable: false
                     },
                 ],
+                language: {
+                paginate: {
+                    previous: 'Pre',  // Customize pagination text here
+                    next: 'Next'      // You can also change "Next" text if needed
+                    }
+                },
                 initComplete: function(settings, json) {
                     // $("tfoot").next().hide();
                     $(".data-table").wrap("<div style='overflow:auto; position:relative;'></div>");

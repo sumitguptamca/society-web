@@ -11,6 +11,7 @@ class WaterBillController extends Controller
 {
     public function index(Request $request)
     {
+        $title = 'Water Bill';
         if ($request->ajax()) {
             $data = WaterBill::orderBy('id','desc');
             return DataTables::of($data)
@@ -30,7 +31,7 @@ class WaterBillController extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
         }
-        return view('admin.services.waterbill.index');
+        return view('admin.services.waterbill.index', compact('title'));
     }
 
     /**
@@ -38,7 +39,8 @@ class WaterBillController extends Controller
      */
     public function create()
     {
-        return view('admin.services.waterbill.create');
+        $title = 'Add Water Bill';
+        return view('admin.services.waterbill.create', compact('title'));
     }
 
     /**
@@ -80,8 +82,9 @@ class WaterBillController extends Controller
      */
     public function edit(string $id)
     {
+        $title = 'Update Water Bill';
         $waterbill = WaterBill::findOrFail($id);
-        return view('admin.services.waterbill.edit', compact('waterbill'));
+        return view('admin.services.waterbill.edit', compact('waterbill', 'title'));
     }
 
     /**

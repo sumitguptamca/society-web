@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Admin\Notice;
 
 use App\Http\Controllers\Controller;
 use App\Models\Notice;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
 
 class NoticeController extends Controller
 {
     public function index(Request $request)
     {
+        $title = 'Notice';
         if ($request->ajax()) {
             $data = Notice::orderBy('id','desc');
             return DataTables::of($data)
@@ -18,7 +21,7 @@ class NoticeController extends Controller
                 ->addColumn('action', function($row){
                     $id = $row->id;
                     $deleteUrl = route('admin.notice.destroy', $row->id);
-                    $actionBtn = '<a href="' . route('admin.notice.edit', $id) . '"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
+                    $actionBtn = '<a href="' . route('admin.notice.edit', $id) . '" title="Edit"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
                     $actionBtn .= '<form action="' . $deleteUrl . '" method="POST" style="display:inline;" class="form_'.$id.'">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
@@ -27,10 +30,15 @@ class NoticeController extends Controller
                     
                     return $actionBtn;
                 })
-                ->rawColumns(['action'])
+                ->editColumn('description', function ($row) {
+                    // Truncate content to 20 words
+                    $truncatedContent = Str::words($row->description, 15, '...');
+                    return nl2br(e($truncatedContent)); 
+                })
+                ->rawColumns(['action','description'])
                 ->make(true);
         }
-        return view('admin.notice.index');
+        return view('admin.notice.index', compact('title'));
     }
 
     /**
@@ -38,7 +46,8 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        return view('admin.notice.create');
+        $title = 'Add Notice';
+        return view('admin.notice.create', compact('title'));
     }
 
     /**
@@ -46,6 +55,7 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
        $request->validate([
             'notice_date' => 'required|date',
             'notice_title' => 'required|string|max:255',
@@ -55,6 +65,7 @@ class NoticeController extends Controller
                 'notice_date' => $request->notice_date,
                 'title'       => $request->notice_title,
                 'description'  => $request->notice_description,
+                'created_by'  => $request->user_id,
             ]);
         if($notice){
             return redirect()->route('admin.notice.index')->with('success', 'Notice created successfully!.');
@@ -76,8 +87,10 @@ class NoticeController extends Controller
      */
     public function edit(string $id)
     {
+        $title = 'Update Notice';
         $notice = Notice::findOrFail($id);
-        return view('admin.notice.edit', compact('notice'));
+        $notice_date = Carbon::parse($notice->notice_date)->format('Y-m-d');
+        return view('admin.notice.edit', compact('notice', 'title','notice_date'));
     }
 
     /**

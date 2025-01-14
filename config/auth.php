@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'flatowner' => [
+        'driver' => 'session',
+        'provider' => 'flatowner',
+       ],
+       'api' => [
+				'driver' => 'passport',
+				'provider' => 'flatowner',
+		],
     ],
 
     /*
@@ -64,6 +72,10 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+        'flatowner' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\FlateOwner::class,
+         ],
 
         // 'users' => [
         //     'driver' => 'database',

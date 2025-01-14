@@ -8,13 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <title>Admin | {{ $title }}</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="icon" href="{{ asset('assets/img/logo/favicon.ico') }}" type="image/x-icon" />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
@@ -36,6 +34,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Add this in your Blade layout file (e.g., layouts/app.blade.php) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
@@ -169,10 +169,10 @@
       <!--   Core JS Files   -->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-      <script src="../assets/js/core/popper.min.js"></script>
-      <script src="../assets/js/core/bootstrap.min.js"></script>
-      <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-      <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+      <script src="{{ asset('/assets/assets_info/js/core/popper.min.js') }}"></script>
+      <script src="{{ asset('/assets/assets_info/js/core/bootstrap.min.js') }}"></script>
+      <script src="{{ asset('/assets/assets_info/js/plugins/perfect-scrollbar.min.js') }}"></script>
+      <script src="{{ asset('/assets/assets_info/js/plugins/smooth-scrollbar.min.js') }}"></script>
       <!-- SweetAlert2 JS -->
    
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -193,6 +193,7 @@
 <!-- Include DataTables JS -->
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @include('admin/partials/tostmessage')
       @stack('script')
 

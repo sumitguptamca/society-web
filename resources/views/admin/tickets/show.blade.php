@@ -81,6 +81,19 @@
                     <div class="table-responsive p-0 tableflow">
                         <div class="container1">
                             <!-- First Row -->
+                            @php
+                            if ($ticket->title == 1) {
+                                $title = 'For Complaint Raise';
+                            } elseif ($ticket->title == 2) {
+                                $title = 'Update Owner Detail';
+                            } elseif ($ticket->title == 3) {
+                                $title = 'Update Mobile No.';
+                            } elseif ($ticket->title == 4) {
+                                $title = 'Update Email';
+                            } else {
+                                $title = 'N/A';
+                            }
+                            @endphp
                             <div class="row">
                                 <div class="box">
                                     <label for="field1">Added By</label>
@@ -96,11 +109,11 @@
                             <div class="row">
                                 <div class="box">
                                     <label for="field3">Title</label>
-                                    <input type="text" id="field3" name="field3" value="{{$ticket->title}}" disabled>
+                                    <input type="text" id="field3" name="field3" value="{{$title}}" disabled>
                                 </div>
                                 <div class="box">
                                     <label for="field4">Status</label>
-                                    <input type="text" id="field4" name="field4" value="{{$ticket->status}}" disabled style="background-color:#1e90ff;">
+                                    <input type="text" id="field4" name="field4" value="{{$ticket->status}}" disabled>
                                 </div>
                             </div>
                             <!-- Description Section -->
@@ -111,19 +124,6 @@
                                 </div>
                             </div>
                     
-                            <!-- Images Section -->
-                            <div class="row">
-                                <div class="box full-width">
-                                    <label for="images">Images</label>
-                                    <div class="img">
-                                        <img src="https://tse2.mm.bing.net/th?id=OIP.XIIr9PuEBjBf12zg23w_sgHaEK&pid=Api&P=0&h=180">
-                                        <img src="https://tse3.mm.bing.net/th?id=OIP.iskFyYFUNsslHcmFfekXZAHaEm&pid=Api&P=0&h=180">
-                                        <img src="https://tse3.mm.bing.net/th?id=OIP.VG4LTewmmGU5bSgi9dD8ywHaE8&pid=Api&P=0&h=180">
-                                        <img src="https://tse1.mm.bing.net/th?id=OIP.xvM3chsolzysB2s0UU4N6QHaEo&pid=Api&P=0&h=180">
-                                    </div>
-                                    
-                                </div>
-                            </div>
                         </div>
 
                     </div>

@@ -12,7 +12,7 @@
                             <h6 class="text-white text-capitalize ps-3">Flate Owner List</h6>
                         </div>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body px-0 pb-2 mx-3 z-index-2">
                         <div class="table-responsive p-0 tableflow">
                             <table class="table align-items-center data-table mb-0">
                                 <thead>
@@ -23,13 +23,13 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Name</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Email</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Flat No.</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             City</th>
                                         <th class="text-secondary opacity-7">Action</th>
                                     </tr>
@@ -72,7 +72,7 @@
         var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.flateowner.index') }}",
+            ajax: "{{ route('admin.flatowner.index') }}",
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex',orderable: false, searchable: false},
                 {data: 'name', name: 'name'},
@@ -81,6 +81,12 @@
                 {data: 'city', name: 'city'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
+            language: {
+                paginate: {
+                    previous: 'Pre',  // Customize pagination text here
+                    next: 'Next'      // You can also change "Next" text if needed
+                }
+            },
             initComplete: function(settings, json) {
                 // $("tfoot").next().hide();
                 $(".data-table").wrap("<div style='overflow:auto; position:relative;'></div>"); 

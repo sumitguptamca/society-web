@@ -23,15 +23,15 @@
                                             class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Title</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Description</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Date</th>
                                         <th class="text-secondary opacity-7">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="notice-word-wrap">
                                 </tbody>
                             </table>
                         </div>
@@ -77,6 +77,12 @@
                 {data: 'notice_date', name: 'notice_date'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
+            language: {
+            paginate: {
+                previous: 'Pre',  // Customize pagination text here
+                next: 'Next'      // You can also change "Next" text if needed
+            }
+           },
             initComplete: function(settings, json) {
                 // $("tfoot").next().hide();
                 $(".data-table").wrap("<div style='overflow:auto; position:relative;'></div>"); 

@@ -2850,7 +2850,7 @@ progress {
 .form-control {
   display: block;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 0.5rem 13px;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5rem;
@@ -2880,7 +2880,7 @@ progress {
 .form-control:focus {
   color: #404040;
   background-color: transparent;
-  border-color: transparent;
+  border-color: black;
   outline: 0;
   box-shadow: none;
 }
@@ -4978,7 +4978,7 @@ fieldset:disabled .btn {
   --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
   display: flex;
   flex-direction: column;
-  padding-left: 0;
+  padding: 15;
   margin-bottom: 0;
   list-style: none;
 }
@@ -5851,24 +5851,24 @@ fieldset:disabled .btn {
 .page-link:hover {
   z-index: 2;
   color: var(--bs-pagination-hover-color);
-  background-color: var(--bs-pagination-hover-bg);
+  /* background-color: var(--bs-pagination-hover-bg); */
   border-color: var(--bs-pagination-hover-border-color);
 }
 
 .page-link:focus {
   z-index: 3;
   color: var(--bs-pagination-focus-color);
-  background-color: var(--bs-pagination-focus-bg);
+  /* background-color: var(--bs-pagination-focus-bg); */
   outline: 0;
-  box-shadow: var(--bs-pagination-focus-box-shadow);
+  /* box-shadow: var(--bs-pagination-focus-box-shadow); */
 }
 
 .page-link.active,
 .active>.page-link {
   z-index: 3;
   color: var(--bs-pagination-active-color);
-  background-color: var(--bs-pagination-active-bg);
-  border-color: var(--bs-pagination-active-border-color);
+  /* background-color: var(--bs-pagination-active-bg);
+  border-color: var(--bs-pagination-active-border-color); */
 }
 
 .page-link.disabled,
@@ -23944,7 +23944,7 @@ label,
 }
 
 .form-control {
-  border: none;
+  /* border: none; */
 }
 
 .form-control.is-invalid {
@@ -29148,6 +29148,44 @@ pre[class*=language-] {
   .ps {
     overflow: auto !important;
   }
+}
+
+.my-card-style{
+  border: 1px solid #00000000 !important;
+  border-radius: 10px !important;
+  background-color: #f2f2f273;
+}
+.title-style{
+  background-color: gray;
+    padding: 6px 0;
+    border-radius: 11px 11px 0px 0px;
+}
+.self-padding{
+  padding:0 !important;
+}
+.dataTables_wrapper .dataTables_filter{
+  padding-right: 21px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #f38b8b00 !important;
+  border: none !important;
+}
+.dashboard-info{
+  margin-left: 10px;
+  display: flex;
+}
+.notice-text{
+  font-size: .79rem !important;
+
+}
+.ddselect{
+  width: 100px;
+  text-align: center;
+}
+.custome-btn{
+  border: none;
+  border-radius: 20px;
+  background-color: #f5f5f5;
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */

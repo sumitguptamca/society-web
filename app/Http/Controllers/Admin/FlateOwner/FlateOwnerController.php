@@ -15,15 +15,15 @@ class FlateOwnerController extends Controller
      */
     public function index(Request $request)
     {
-       
+        $title = 'Flat Owner';
         if ($request->ajax()) {
             $data = FlateOwner::orderBy('id','desc');
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $deleteUrl = route('admin.flateowner.destroy', $row->id);
+                    $deleteUrl = route('admin.flatowner.destroy', $row->id);
                     $id = $row->id;
-                    $actionBtn = '<a href="' . route('admin.flateowner.edit', $id) . '"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
+                    $actionBtn = '<a href="' . route('admin.flatowner.edit', $id) . '"><i class="fas fa-edit"></i></a> &nbsp;&nbsp;';
                     $actionBtn .= '<form action="' . $deleteUrl . '" method="POST" style="display:inline;" class="form_'.$id.'">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
@@ -36,7 +36,7 @@ class FlateOwnerController extends Controller
                 ->make(true);
         }
          
-        return view('admin/flateOwners/flateownerlist');
+        return view('admin/flateOwners/flateownerlist',compact('title'));
     }
 
     /**
@@ -44,7 +44,8 @@ class FlateOwnerController extends Controller
      */
     public function create()
     {
-        return view('admin/flateOwners/create');
+        $title = 'Add Flat Owner';
+        return view('admin/flateOwners/create', compact('title'));
     }
 
     /**
@@ -52,16 +53,23 @@ class FlateOwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //  dd($request->all());
-        $validated = $request->validate([
+        //   dd($request->all());
+       $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'mobile' => 'required',
             'flat_no' => 'required',
             'username' => 'required',
             'password' => 'required|string|min:5|confirmed',
+            'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-      $flateOwner =  FlateOwner::create([
+
+        $profileImagePath = null;
+    if ($request->hasFile('file')) {
+        $profileImagePath = $request->file('file')->store('profile_images', 'public'); // Store image in the 'profile_images' directory
+    }
+    
+      $flatOwner =  FlateOwner::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
@@ -70,11 +78,12 @@ class FlateOwnerController extends Controller
             'country' => $request->country,
             'username' => $request->username,
             'password' => Hash::make($request->password),
+            'profile_image' => $profileImagePath,
         ]);
-        if($flateOwner){
-            return redirect()->route('admin.flateowner.index')->with('success', 'Flate Owner added successful!.');
+        if($flatOwner){
+            return redirect()->route('admin.flatowner.index')->with('success', 'Flat Owner added successful!.');
         }else{
-            return redirect()->route('admin.flateowner.create')->with('error', 'Something Went wrong.');
+            return redirect()->route('admin.flatowner.create')->with('error', 'Something Went wrong.');
         }
        
     }
@@ -92,8 +101,9 @@ class FlateOwnerController extends Controller
      */
     public function edit(string $id)
     {
+        $title = 'Update Flat Owner';
         $flateOwner = FlateOwner::findOrFail($id);
-        return view('admin.flateOwners.edit', compact('flateOwner'));
+        return view('admin.flateOwners.edit', compact('flateOwner', 'title'));
     }
 
     /**
@@ -108,29 +118,42 @@ class FlateOwnerController extends Controller
             'flat_no' => 'required|string',
             'city' => 'required|string',
             'username' => 'required|string|max:255',
+            // 'file' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         // Find the FlateOwner by ID
-        $flateOwner = FlateOwner::findOrFail($id);
+        $flatOwner = FlateOwner::findOrFail($id);
 
         // Update the data in the database
-        $flateOwner->name = $request->input('name');
-        $flateOwner->email = $request->input('email');
-        $flateOwner->mobile = $request->input('mobile');
-        $flateOwner->flat_no = $request->input('flat_no');
-        $flateOwner->city = $request->input('city');
-        $flateOwner->username = $request->input('username');
+        $flatOwner->name = $request->input('name');
+        $flatOwner->email = $request->input('email');
+        $flatOwner->mobile = $request->input('mobile');
+        $flatOwner->flat_no = $request->input('flat_no');
+        $flatOwner->city = $request->input('city');
+        $flatOwner->username = $request->input('username');
 
         // Only update the password if a new one is provided
         if ($request->filled('password')) {
-            $flateOwner->password = bcrypt($request->input('password'));
+            $flatOwner->password = bcrypt($request->input('password'));
+        }
+        if ($request->hasFile('file')) {
+            // Delete the old profile picture if it exists
+            if ($flatOwner->profile_image) {
+                $oldFilePath = public_path('storage/' . $flatOwner->profile_image);
+                if (file_exists($oldFilePath)) {
+                    unlink($oldFilePath);
+                }
+            }
+            // Store the new profile picture and update the user
+            $path = $request->file('file')->store('profile_images', 'public');
+            $flatOwner->profile_image = $path;
         }
 
         // Save the updated data
-        $flateOwner->save();
+        $flatOwner->save();
 
         // Redirect back to the list of FlateOwners with a success message
-        return redirect()->route('admin.flateowner.index')->with('success', 'FlateOwner updated successfully!');
+        return redirect()->route('admin.flatowner.index')->with('success', 'Flat Owner updated successfully!');
     
     }
 
@@ -145,6 +168,6 @@ class FlateOwnerController extends Controller
         $flateOwner->delete();
     
         // Redirect to the FlateOwner list with a success message
-        return redirect()->route('admin.flateowner.index')->with('success', 'Flate Owner deleted successfully');
+        return redirect()->route('admin.flatowner.index')->with('success', 'Flat Owner deleted successfully');
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('notice_date')->nullable(); // Date field for the notice
             $table->string('title')->nullable(); // Title of the notice
             $table->text('description')->nullable(); 
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null'); // Add created_by column with foreign key reference to users table
             $table->timestamps();
         });
     }
